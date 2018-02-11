@@ -13,7 +13,7 @@ public class Intake extends Command {
     protected void initialize() {}
 
     protected void execute() {
-    		Robot.intake.setSpeed(-0.25);
+    		Robot.intake.setSpeed(-0.35);
     }
 
     protected boolean isFinished() {
@@ -24,5 +24,7 @@ public class Intake extends Command {
     		Robot.intake.setSpeed(0);
     }
 
-    protected void interrupted() {}
+    protected void interrupted() {
+    		end();
+    }
 }
