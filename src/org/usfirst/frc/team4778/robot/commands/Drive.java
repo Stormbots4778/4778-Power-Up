@@ -5,6 +5,10 @@ import org.usfirst.frc.team4778.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
+/*
+* Drive.java
+* Command that handles driving the robot
+*/
 public class Drive extends Command {
 	public Drive() {
 		requires(Robot.drivetrain);
@@ -15,7 +19,7 @@ public class Drive extends Command {
 
 	@Override
 	protected void execute() {
-		Robot.robotDrive.tankDrive(-OI.gamepad.getRawAxis(1), -OI.gamepad.getRawAxis(3), true);
+		Robot.m_drive.tankDrive(-OI.gamepad.getRawAxis(1), -OI.gamepad.getRawAxis(3), true);
 	}
 
 	@Override

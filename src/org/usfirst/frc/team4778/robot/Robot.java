@@ -1,19 +1,24 @@
 package org.usfirst.frc.team4778.robot;
 
 import org.usfirst.frc.team4778.robot.subsystems.Drivetrain;
-import org.usfirst.frc.team4778.robot.subsystems.Intake;
+import org.usfirst.frc.team4778.robot.subsystems.Grabber;
+import org.usfirst.frc.team4778.robot.subsystems.CubeManipulator;
 
-import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+/*
+* Robot.java
+* Main robot class
+*/
 public class Robot extends TimedRobot {
 	public static final Drivetrain drivetrain = new Drivetrain();
-	public static final RobotDrive robotDrive = new RobotDrive(RobotMap.L0, RobotMap.L1, RobotMap.R0, RobotMap.R1);
-	public static final Intake intake = new Intake();
+	public static final DifferentialDrive m_drive = new DifferentialDrive(RobotMap.m_left, RobotMap.m_right);
+	public static final CubeManipulator cubemanipulator = new CubeManipulator();
+	public static final Grabber grabber = new Grabber();
 	
 	public static OI oi = new OI();
 
@@ -68,7 +73,6 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		SmartDashboard.putNumber("Rando number", 960);
 	}
 	
 	@Override

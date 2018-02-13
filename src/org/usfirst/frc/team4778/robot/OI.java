@@ -7,6 +7,11 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+
+/*
+* OI.java
+* Contains definitions for operator interfaces
+*/
 public class OI {
 	public static Joystick gamepad = new Joystick(0);
 	
@@ -15,6 +20,6 @@ public class OI {
 	
 	public OI() {		
 		shoot.whileHeld(new Shoot(1));
-		intake.whileHeld(new Intake());
+		intake.whileHeld(new Intake(1));
 	}
 }
