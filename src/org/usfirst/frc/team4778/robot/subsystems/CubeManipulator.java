@@ -1,7 +1,7 @@
 package org.usfirst.frc.team4778.robot.subsystems;
 
 import org.usfirst.frc.team4778.robot.RobotMap;
-
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /*
@@ -18,8 +18,12 @@ public class CubeManipulator extends Subsystem {
     public void intake(double speed) {
     	RobotMap.m_cubeMotors.set(-speed);
     }
+    public void lift() {
+    	RobotMap.m_liftSolenoid.set(DoubleSolenoid.Value.kForward);
+    }
     public void stop() {
     	RobotMap.m_cubeMotors.set(0);
+    	RobotMap.m_liftSolenoid.set(DoubleSolenoid.Value.kOff);
     }
 }
 

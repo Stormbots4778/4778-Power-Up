@@ -19,7 +19,6 @@ public class Robot extends TimedRobot {
 	public static final DifferentialDrive m_drive = new DifferentialDrive(RobotMap.m_left, RobotMap.m_right);
 	public static final CubeManipulator cubemanipulator = new CubeManipulator();
 	public static final Grabber grabber = new Grabber();
-	
 	public static OI oi = new OI();
 
 	Command m_autonomousCommand;
@@ -28,7 +27,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		//m_chooser.addDefault("Default Auto", new ExampleCommand());
-		// chooser.addObject("My Auto", new MyAutoCommand());
+		//chooser.addObject("My Auto", new MyAutoCommand());
 		//SmartDashboard.putData("Auto mode", m_chooser);
 	}
 

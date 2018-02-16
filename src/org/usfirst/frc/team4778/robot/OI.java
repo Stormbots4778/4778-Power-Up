@@ -19,7 +19,7 @@ public class OI {
 	public static Button intake = new JoystickButton(gamepad, 7);
 	
 	public OI() {		
-		shoot.whileHeld(new Shoot(1));
-		intake.whileHeld(new Intake(1));
+		shoot.whileHeld(new Shoot(0.7));
+		intake.whileHeld(new Intake(0.7));
 	}
 }
