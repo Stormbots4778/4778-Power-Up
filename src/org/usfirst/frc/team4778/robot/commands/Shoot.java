@@ -14,13 +14,13 @@ public class Shoot extends Command {
 	
     public Shoot(double speed) {
         requires(Robot.cubemanipulator);
-    	this.speed = speed;
+        this.speed = speed;
     }
 
     protected void initialize() {}
 
     protected void execute() {
-    	Robot.cubemanipulator.shoot(speed);
+    		Robot.cubemanipulator.shoot(speed);
     }
 
     protected boolean isFinished() {
@@ -28,10 +28,10 @@ public class Shoot extends Command {
     }
 
     protected void end() {
-    	Robot.cubemanipulator.stop();
+    		Robot.cubemanipulator.stop();
     }
 
     protected void interrupted() {
-    	end();
+    		end();
     }
 }

@@ -1,0 +1,32 @@
+package org.usfirst.frc.team4778.robot.commands;
+
+import org.usfirst.frc.team4778.robot.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
+
+public class FoldGrabber extends Command {
+
+	private boolean in;
+	
+    public FoldGrabber(boolean in) {
+    		this.in = in;
+    }
+
+    protected void initialize() {
+    }
+
+    protected void execute() {
+    		Robot.grabber.fold(in);
+    }
+
+    protected boolean isFinished() {
+        return false;
+    }
+
+    protected void end() {
+    }
+    
+    protected void interrupted() {
+    		end();
+    }
+}

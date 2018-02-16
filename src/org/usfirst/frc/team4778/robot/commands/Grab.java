@@ -26,11 +26,11 @@ public class Grab extends Command{
     }
 
     protected void end() {
-    	Robot.grabber.stop();
+    		Robot.grabber.stop();
     }
 
     protected void interrupted() {
-    	end();
+    		end();
     }
 
 }

@@ -1,7 +1,9 @@
 package org.usfirst.frc.team4778.robot.commands;
 
 import org.usfirst.frc.team4778.robot.Robot;
+import org.usfirst.frc.team4778.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
 
 /*
@@ -10,9 +12,16 @@ import edu.wpi.first.wpilibj.command.Command;
 */
 public class Lift extends Command {
 
+	private boolean up;
+	
+	public Lift(boolean up) {
+		this.up = up;
+	}
+	
     protected void initialize() {}
 
     protected void execute() {
+    		Robot.cubemanipulator.lift(up);
     }
 
     protected boolean isFinished() {
@@ -23,6 +32,6 @@ public class Lift extends Command {
     }
 
     protected void interrupted() {
-    	end();
+    		end();
     }
 }
