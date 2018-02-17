@@ -17,13 +17,13 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 	public static Joystick gamepad = new Joystick(0);
 	
-	public static Button shoot = new JoystickButton(gamepad, 8);
-	public static Button intake = new JoystickButton(gamepad, 7);
+	public static Button shoot = new JoystickButton(gamepad, 8);  // Right Trigger
+	public static Button intake = new JoystickButton(gamepad, 7); // Left Trigger
 	
-	public static Button lift_up = new JoystickButton(gamepad, 4);
-	public static Button lift_down = new JoystickButton(gamepad, 2);
+	public static Button lift_up = new JoystickButton(gamepad, 4);   // Y
+	public static Button lift_down = new JoystickButton(gamepad, 2); // A
 	
-	public static Button grab = new JoystickButton(gamepad, 6);
+	public static Button grab = new JoystickButton(gamepad, 6); // Right Bumper
 	
 	public OI() {		
 		shoot.whileHeld(new Shoot(1));
