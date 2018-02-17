@@ -3,6 +3,7 @@ package org.usfirst.frc.team4778.robot;
 import org.usfirst.frc.team4778.robot.commands.Grab;
 import org.usfirst.frc.team4778.robot.commands.Intake;
 import org.usfirst.frc.team4778.robot.commands.Lift;
+import org.usfirst.frc.team4778.robot.commands.Push;
 import org.usfirst.frc.team4778.robot.commands.Shoot;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -20,10 +21,13 @@ public class OI {
 	public static Button shoot = new JoystickButton(gamepad, 8);  // Right Trigger
 	public static Button intake = new JoystickButton(gamepad, 7); // Left Trigger
 	
+	public static Button grab = new JoystickButton(gamepad, 6); // Right Bumper
+	
+	public static Button push = new JoystickButton(gamepad, 2); // X?
+	
 	public static Button lift_up = new JoystickButton(gamepad, 4);   // Y
 	public static Button lift_down = new JoystickButton(gamepad, 2); // A
 	
-	public static Button grab = new JoystickButton(gamepad, 6); // Right Bumper
 	
 	public OI() {		
 		shoot.whileHeld(new Shoot(1));
@@ -31,6 +35,8 @@ public class OI {
 		
 		lift_up.whileActive(new Lift(true));
 		lift_down.whileActive(new Lift(false));
+		
+		push.whileHeld(new Push());
 		
 		grab.whileHeld(new Grab());
 	}

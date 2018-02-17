@@ -5,18 +5,15 @@ import org.usfirst.frc.team4778.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class Push extends Command {
-
-	private boolean out;
 	
-    public Push(boolean out) {
-    		this.out = out;
+    public Push() {
     }
 
     protected void initialize() {
     }
 
     protected void execute() {
-    		Robot.cubemanipulator.push(out);
+    		Robot.cubemanipulator.push(true);
     }
 
     protected boolean isFinished() {
@@ -24,8 +21,10 @@ public class Push extends Command {
     }
 
     protected void end() {
+		Robot.cubemanipulator.push(false);
     }
 
     protected void interrupted() {
+    		end();
     }
 }
