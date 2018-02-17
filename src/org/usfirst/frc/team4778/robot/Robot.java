@@ -1,9 +1,11 @@
 package org.usfirst.frc.team4778.robot;
 
+import org.usfirst.frc.team4778.robot.subsystems.CubeManipulator;
 import org.usfirst.frc.team4778.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team4778.robot.subsystems.Grabber;
-import org.usfirst.frc.team4778.robot.subsystems.CubeManipulator;
 
+import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -24,11 +26,15 @@ public class Robot extends TimedRobot {
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 	
+	String gameData;
+	
 	@Override
 	public void robotInit() {
 		//m_chooser.addDefault("Default Auto", new ExampleCommand());
 		//chooser.addObject("My Auto", new MyAutoCommand());
 		//SmartDashboard.putData("Auto mode", m_chooser);
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
+		CameraServer.getInstance().startAutomaticCapture();
 	}
 
 	@Override
@@ -76,5 +82,6 @@ public class Robot extends TimedRobot {
 	
 	@Override
 	public void testPeriodic() {
+		CameraServer.getInstance().getVideo();
 	}
 }
