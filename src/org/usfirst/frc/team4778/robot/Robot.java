@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4778.robot;
 
+import org.usfirst.frc.team4778.robot.commands.AutoCrossLine;
 import org.usfirst.frc.team4778.robot.subsystems.CubeManipulator;
 import org.usfirst.frc.team4778.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team4778.robot.subsystems.Grabber;
@@ -11,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /*
 * Robot.java
@@ -30,9 +32,9 @@ public class Robot extends TimedRobot {
 	
 	@Override
 	public void robotInit() {
-		//m_chooser.addDefault("Default Auto", new ExampleCommand());
-		//chooser.addObject("My Auto", new MyAutoCommand());
-		//SmartDashboard.putData("Auto mode", m_chooser);
+		m_chooser.addDefault("Default Auto", new AutoCrossLine());
+		//m_chooser.addObject("My Auto", new Auto());
+		SmartDashboard.putData("Auto mode", m_chooser);
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		CameraServer.getInstance().startAutomaticCapture();
 	}
@@ -49,7 +51,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void autonomousInit() {
-		//m_autonomousCommand = m_chooser.getSelected();
+		m_autonomousCommand = m_chooser.getSelected();
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",

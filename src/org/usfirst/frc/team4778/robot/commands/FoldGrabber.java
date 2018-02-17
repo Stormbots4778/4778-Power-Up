@@ -4,6 +4,10 @@ import org.usfirst.frc.team4778.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
+/*
+ * FoldGrabber.java
+ * Meant to unfold the grabbers at the start of the match
+ */
 public class FoldGrabber extends Command {
 
 	private boolean in;
