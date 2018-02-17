@@ -9,6 +9,7 @@ public class FoldGrabber extends Command {
 	private boolean in;
 	
     public FoldGrabber(boolean in) {
+        requires(Robot.grabber);
     		this.in = in;
     }
 

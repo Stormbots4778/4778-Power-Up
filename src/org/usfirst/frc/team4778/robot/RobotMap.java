@@ -29,8 +29,9 @@ public class RobotMap {
 	public static SpeedControllerGroup m_cubeMotors = new SpeedControllerGroup(m_cubeBackLeft,m_cubeFrontLeft,m_cubeBackRight,m_cubeFrontRight);
 	
 	// Grabber motor controllers
-	//public static Victor m_grabberLeft = new Victor();
-	//public static Victor m_grabberRight = new Victor();
+	public static VictorSP m_grabberLeft = new VictorSP(0);
+	public static VictorSP m_grabberRight = new VictorSP(9);
+	public static SpeedControllerGroup m_grabMotors = new SpeedControllerGroup(m_grabberLeft, m_grabberRight);
 	
 	// Lift solenoids
 	public static DoubleSolenoid m_liftSolenoid  = new DoubleSolenoid(0,1);

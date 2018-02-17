@@ -18,7 +18,7 @@ public class Grab extends Command{
     protected void initialize() {}
 
     protected void execute() {
-    	//Robot.grabber.grab();
+    		Robot.grabber.grab();
     }
 
     protected boolean isFinished() {

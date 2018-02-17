@@ -13,7 +13,7 @@ public class Grabber extends Subsystem {
     public void initDefaultCommand() {}
     
     public void grab() {
-    		//RobotMap.m_grabMotors.set();
+    		RobotMap.m_grabMotors.set(0.3);
     		return;
     }
     
@@ -26,7 +26,7 @@ public class Grabber extends Subsystem {
     }
     
     public void stop() {
-    		//RobotMap.m_grabMotors.set(0);
+    		RobotMap.m_grabMotors.set(0);
     		return;
     }
 }
