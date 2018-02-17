@@ -29,6 +29,7 @@ public class FoldGrabber extends Command {
     }
 
     protected void end() {
+    		Robot.grabber.fold(!in);
     }
     
     protected void interrupted() {

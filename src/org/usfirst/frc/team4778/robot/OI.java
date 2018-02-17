@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4778.robot;
 
+import org.usfirst.frc.team4778.robot.commands.FoldGrabber;
 import org.usfirst.frc.team4778.robot.commands.Grab;
 import org.usfirst.frc.team4778.robot.commands.Intake;
 import org.usfirst.frc.team4778.robot.commands.Lift;
@@ -29,6 +30,8 @@ public class OI {
 	public static Button lift_down = new JoystickButton(gamepad, 2); // A
 	
 	
+	public static Button temp_grabbers = new JoystickButton(gamepad, 3); // B? (temporary)
+	
 	public OI() {		
 		shoot.whileHeld(new Shoot(1));
 		intake.whileHeld(new Intake(0.3));
@@ -39,5 +42,8 @@ public class OI {
 		push.whileHeld(new Push());
 		
 		grab.whileHeld(new Grab());
+		
+		
+		temp_grabbers.whileActive(new FoldGrabber(true));
 	}
 }
