@@ -37,6 +37,8 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData("Auto mode", m_chooser);
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		CameraServer.getInstance().startAutomaticCapture();
+		RobotMap.compressor.setClosedLoopControl(true);
+		//RobotMap.compressor.start();
 	}
 
 	@Override
@@ -84,5 +86,6 @@ public class Robot extends TimedRobot {
 	
 	@Override
 	public void testPeriodic() {
+		
 	}
 }

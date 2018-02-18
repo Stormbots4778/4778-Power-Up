@@ -10,14 +10,17 @@ import edu.wpi.first.wpilibj.command.Command;
 */
 public class Grab extends Command{
 
-	public Grab() {
+	private boolean in;
+	
+	public Grab(boolean in) {
         requires(Robot.grabber);
+        this.in = in;
     }
 
     protected void initialize() {}
 
     protected void execute() {
-    		Robot.grabber.grab();
+    		Robot.grabber.grab(in);
     }
 
     protected boolean isFinished() {

@@ -12,8 +12,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Grabber extends Subsystem {
     public void initDefaultCommand() {}
     
-    public void grab() {
-    		RobotMap.m_grabMotors.set(0.3);
+    public void grab(boolean in) {
+    		if(in) {
+    			RobotMap.m_grabMotors.set(0.3);
+    		} else {
+    			RobotMap.m_grabMotors.set(-0.3);
+    		}
     		return;
     }
     

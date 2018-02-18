@@ -34,11 +34,11 @@ public class RobotMap {
 	public static SpeedControllerGroup m_grabMotors = new SpeedControllerGroup(m_grabberLeft, m_grabberRight);
 	
 	// Lift solenoids
-	public static DoubleSolenoid m_liftSolenoid  = new DoubleSolenoid(0,1);
+	public static DoubleSolenoid m_liftSolenoid  = new DoubleSolenoid(2,3);
 	public static DoubleSolenoid m_pusherSolenoid = new DoubleSolenoid(4,5);
 	
 	// Grabber solenoids
-	public static DoubleSolenoid m_grabberSolenoid  = new DoubleSolenoid(2,3);
+	public static DoubleSolenoid m_grabberSolenoid  = new DoubleSolenoid(0,1);
 	
 	// Compressor
 	public static Compressor compressor = new Compressor(0);
