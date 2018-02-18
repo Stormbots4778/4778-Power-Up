@@ -1,6 +1,5 @@
 package org.usfirst.frc.team4778.robot;
 
-import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.VictorSP;
@@ -39,8 +38,5 @@ public class RobotMap {
 	
 	// Grabber solenoids
 	public static DoubleSolenoid m_grabberSolenoid  = new DoubleSolenoid(0,1);
-	
-	// Compressor
-	public static Compressor compressor = new Compressor(0);
 
 }

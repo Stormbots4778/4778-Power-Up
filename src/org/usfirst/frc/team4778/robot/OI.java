@@ -21,7 +21,8 @@ public class OI {
 	public static Joystick joystickRight = new Joystick(1);
 	public static Joystick gamepad = new Joystick(2);
 	
-	public static Button shoot = new JoystickButton(gamepad, 8);  // Right Trigger
+	public static Button shootScale = new JoystickButton(gamepad, 8);  // Right Trigger
+	public static Button shootSwitch = new JoystickButton(gamepad, 2); // 
 	public static Button intake = new JoystickButton(gamepad, 7); // Left Trigger
 	
 	public static Button grab = new JoystickButton(gamepad, 6); // Right Bumper
@@ -32,12 +33,12 @@ public class OI {
 	public static Button lift_up = new JoystickButton(gamepad, 4);   // Y
 	public static Button lift_down = new JoystickButton(gamepad, 2); // A
 	
-	
 	public static Button temp_grabbers = new JoystickButton(gamepad, 3); // B (temporary)
 	
 	public OI() {
-		shoot.whenPressed(new Shoot(1));
-		intake.whenPressed(new Intake(0.3));
+		shootSwitch.whenActive(new Shoot(1));
+		shootScale.whenActive(new Shoot(0.2));
+		intake.whenActive(new Intake(0.3));
 		
 		lift_up.whileActive(new Lift(true));
 		lift_down.whileActive(new Lift(false));
@@ -46,7 +47,6 @@ public class OI {
 		
 		grab.whenPressed(new Grab(true));
 		rGrab.whenPressed(new Grab(false));
-		
 		
 		temp_grabbers.whileActive(new FoldGrabber(true));
 	}
