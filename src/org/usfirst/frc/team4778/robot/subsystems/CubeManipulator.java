@@ -30,9 +30,9 @@ public class CubeManipulator extends Subsystem {
     
     public void lift(boolean up) {
     		if(up) {
-    			RobotMap.m_liftSolenoid.set(DoubleSolenoid.Value.kForward);
-    		} else {
     			RobotMap.m_liftSolenoid.set(DoubleSolenoid.Value.kReverse);
+    		} else {
+    			RobotMap.m_liftSolenoid.set(DoubleSolenoid.Value.kForward);
     		}
     }
     public void stop() {

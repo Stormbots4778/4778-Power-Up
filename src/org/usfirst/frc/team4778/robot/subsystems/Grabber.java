@@ -23,9 +23,9 @@ public class Grabber extends Subsystem {
     
     public void fold(boolean in) {
    		if(in) {
-			RobotMap.m_grabberSolenoid.set(DoubleSolenoid.Value.kForward);
-		} else {
 			RobotMap.m_grabberSolenoid.set(DoubleSolenoid.Value.kReverse);
+		} else {
+			RobotMap.m_grabberSolenoid.set(DoubleSolenoid.Value.kForward);
 		}
     }
     
