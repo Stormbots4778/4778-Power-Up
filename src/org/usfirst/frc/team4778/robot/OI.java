@@ -17,8 +17,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 * Contains definitions for operator interfaces
 */
 public class OI {
-	public static Joystick joystickLeft = new Joystick(0);
-	public static Joystick joystickRight = new Joystick(1);
+	public static Joystick joystickLeft = new Joystick(1);
+	public static Joystick joystickRight = new Joystick(0);
 	
 	public static Button shootScale = new JoystickButton(joystickRight, 3);
 	public static Button shootSwitch = new JoystickButton(joystickLeft, 3);
@@ -50,6 +50,6 @@ public class OI {
 		grab.whenPressed(new Grab(true));
 		rGrab.whenPressed(new Grab(false));
 		
-		temp_grabbers.whileActive(new FoldGrabber(true));
+		temp_grabbers.whenPressed(new FoldGrabber(false));
 	}
 }

@@ -1,6 +1,9 @@
 package org.usfirst.frc.team4778.robot.commands;
 
 import org.usfirst.frc.team4778.robot.Robot;
+import org.usfirst.frc.team4778.robot.RobotMap;
+
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
 
 /*
@@ -18,7 +21,9 @@ public class Lift extends Command {
     protected void initialize() {}
 
     protected void execute() {
+    	//if(RobotMap.m_grabberSolenoid.get().equals(DoubleSolenoid.Value.kReverse)) {
     		Robot.cubemanipulator.lift(up);
+    	//}
     }
 
     protected boolean isFinished() {
