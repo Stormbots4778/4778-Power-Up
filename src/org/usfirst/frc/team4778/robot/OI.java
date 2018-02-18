@@ -19,21 +19,22 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 	public static Joystick joystickLeft = new Joystick(0);
 	public static Joystick joystickRight = new Joystick(1);
-	public static Joystick gamepad = new Joystick(2);
 	
-	public static Button shootScale = new JoystickButton(gamepad, 8);  // Right Trigger
-	public static Button shootSwitch = new JoystickButton(gamepad, 2); // 
-	public static Button intake = new JoystickButton(gamepad, 7); // Left Trigger
+	public static Button shootScale = new JoystickButton(joystickRight, 3);
+	public static Button shootSwitch = new JoystickButton(joystickLeft, 3);
 	
-	public static Button grab = new JoystickButton(gamepad, 6); // Right Bumper
-	public static Button rGrab = new JoystickButton(gamepad, 5); // Left Bumper
+	public static Button intake = new JoystickButton(joystickLeft, 5);
 	
-	public static Button push = new JoystickButton(gamepad, 1); // X
+	public static Button grab = new JoystickButton(joystickRight, 4);
+	public static Button rGrab = new JoystickButton(joystickRight, 5);
 	
-	public static Button lift_up = new JoystickButton(gamepad, 4);   // Y
-	public static Button lift_down = new JoystickButton(gamepad, 2); // A
+	public static Button pushL = new JoystickButton(joystickLeft, 1);
+	public static Button pushR = new JoystickButton(joystickRight, 1);
 	
-	public static Button temp_grabbers = new JoystickButton(gamepad, 3); // B (temporary)
+	public static Button lift_up = new JoystickButton(joystickRight, 2);
+	public static Button lift_down = new JoystickButton(joystickLeft, 2);
+	
+	public static Button temp_grabbers = new JoystickButton(joystickLeft, 4);
 	
 	public OI() {
 		shootSwitch.whenActive(new Shoot(1));
@@ -43,7 +44,8 @@ public class OI {
 		lift_up.whileActive(new Lift(true));
 		lift_down.whileActive(new Lift(false));
 		
-		push.whileHeld(new Push());
+		pushL.whileHeld(new Push());
+		pushR.whileHeld(new Push());
 		
 		grab.whenPressed(new Grab(true));
 		rGrab.whenPressed(new Grab(false));
