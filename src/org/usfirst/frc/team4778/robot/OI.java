@@ -17,7 +17,9 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 * Contains definitions for operator interfaces
 */
 public class OI {
-	public static Joystick gamepad = new Joystick(0);
+	public static Joystick joystickLeft = new Joystick(0);
+	public static Joystick joystickRight = new Joystick(1);
+	public static Joystick gamepad = new Joystick(2);
 	
 	public static Button shoot = new JoystickButton(gamepad, 8);  // Right Trigger
 	public static Button intake = new JoystickButton(gamepad, 7); // Left Trigger
@@ -34,16 +36,16 @@ public class OI {
 	public static Button temp_grabbers = new JoystickButton(gamepad, 3); // B (temporary)
 	
 	public OI() {
-		shoot.whileHeld(new Shoot(1));
-		intake.whileHeld(new Intake(0.3));
+		shoot.whenPressed(new Shoot(1));
+		intake.whenPressed(new Intake(0.3));
 		
 		lift_up.whileActive(new Lift(true));
 		lift_down.whileActive(new Lift(false));
 		
 		push.whileHeld(new Push());
 		
-		grab.whileHeld(new Grab(true));
-		rGrab.whileHeld(new Grab(false));
+		grab.whenPressed(new Grab(true));
+		rGrab.whenPressed(new Grab(false));
 		
 		
 		temp_grabbers.whileActive(new FoldGrabber(true));

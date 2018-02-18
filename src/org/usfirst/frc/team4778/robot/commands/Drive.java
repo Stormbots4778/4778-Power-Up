@@ -19,7 +19,7 @@ public class Drive extends Command {
 
 	@Override
 	protected void execute() {
-		Robot.m_drive.tankDrive(-OI.gamepad.getRawAxis(1), -OI.gamepad.getRawAxis(3), true);
+		Robot.m_drive.tankDrive(OI.joystickLeft.getY(), OI.joystickRight.getY(), true);
 	}
 
 	@Override
