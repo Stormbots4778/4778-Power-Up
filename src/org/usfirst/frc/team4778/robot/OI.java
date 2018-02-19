@@ -37,9 +37,9 @@ public class OI {
 	public static Button temp_grabbers = new JoystickButton(joystickLeft, 4);
 	
 	public OI() {
-		shootSwitch.whenActive(new Shoot(1));
-		shootScale.whenActive(new Shoot(0.2));
-		intake.whenActive(new Intake(0.3));
+		shootSwitch.toggleWhenPressed(new Shoot(1));
+		shootScale.toggleWhenPressed(new Shoot(0.5));
+		intake.toggleWhenPressed(new Intake(0.3));
 		
 		lift_up.whileActive(new Lift(true));
 		lift_down.whileActive(new Lift(false));
@@ -47,8 +47,8 @@ public class OI {
 		pushL.whileHeld(new Push());
 		pushR.whileHeld(new Push());
 		
-		grab.whenPressed(new Grab(true));
-		rGrab.whenPressed(new Grab(false));
+		grab.toggleWhenPressed(new Grab(true));
+		rGrab.toggleWhenPressed(new Grab(false));
 		
 		temp_grabbers.whenPressed(new FoldGrabber(false));
 	}

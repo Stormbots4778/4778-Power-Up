@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4778.robot.commands;
 
 import org.usfirst.frc.team4778.robot.Robot;
+import org.usfirst.frc.team4778.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -28,7 +29,7 @@ public class Grab extends Command{
     }
 
     protected void end() {
-    		Robot.grabber.stop();
+		RobotMap.m_grabMotors.set(0);
     }
 
     protected void interrupted() {
