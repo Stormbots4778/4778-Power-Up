@@ -2,7 +2,8 @@ package org.usfirst.frc.team4778.robot;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.VictorSP;
+// Note: WPI_TalonSRX must be used to support the updated RobotDrive
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 /*
 * RobotMap
@@ -11,29 +12,29 @@ import edu.wpi.first.wpilibj.VictorSP;
 public class RobotMap {
 	
 	// Left drivetrain motor controllers
-	public static VictorSP m_frontLeft = new VictorSP(3);
-	public static VictorSP m_rearLeft  = new VictorSP(4);
+	public static WPI_TalonSRX m_frontLeft = new WPI_TalonSRX(3);
+	public static WPI_TalonSRX m_rearLeft  = new WPI_TalonSRX(4);
 	static SpeedControllerGroup m_left = new SpeedControllerGroup(m_frontLeft, m_rearLeft);
 	
 	// Right drivetrain motor controllers
-	public static VictorSP m_frontRight = new VictorSP(1);
-	public static VictorSP m_rearRight  = new VictorSP(2);
+	public static WPI_TalonSRX m_frontRight = new WPI_TalonSRX(1);
+	public static WPI_TalonSRX m_rearRight  = new WPI_TalonSRX(2);
 	static SpeedControllerGroup m_right = new SpeedControllerGroup(m_frontRight, m_rearRight);
 
 	// Cube manipulator motor controllers
-	public static VictorSP m_cubeBackLeft   = new VictorSP(5);
-	public static VictorSP m_cubeFrontLeft  = new VictorSP(6);
-	public static VictorSP m_cubeBackRight  = new VictorSP(7);
-	public static VictorSP m_cubeFrontRight = new VictorSP(8);
+	public static WPI_TalonSRX m_cubeBackLeft   = new WPI_TalonSRX(5);
+	public static WPI_TalonSRX m_cubeFrontLeft  = new WPI_TalonSRX(6);
+	public static WPI_TalonSRX m_cubeBackRight  = new WPI_TalonSRX(7);
+	public static WPI_TalonSRX m_cubeFrontRight = new WPI_TalonSRX(8);
 	public static SpeedControllerGroup m_cubeMotors = new SpeedControllerGroup(m_cubeBackLeft,m_cubeFrontLeft,m_cubeBackRight,m_cubeFrontRight);
 	
 	// Grabber motor controllers
-	public static VictorSP m_grabberLeft = new VictorSP(0);
-	public static VictorSP m_grabberRight = new VictorSP(9);
+	public static WPI_TalonSRX m_grabberLeft  = new WPI_TalonSRX(0);
+	public static WPI_TalonSRX m_grabberRight = new WPI_TalonSRX(9);
 	public static SpeedControllerGroup m_grabMotors = new SpeedControllerGroup(m_grabberLeft, m_grabberRight);
 	
 	// Lift solenoids
-	public static DoubleSolenoid m_liftSolenoid  = new DoubleSolenoid(2,3);
+	public static DoubleSolenoid m_liftSolenoid   = new DoubleSolenoid(2,3);
 	public static DoubleSolenoid m_pusherSolenoid = new DoubleSolenoid(4,5);
 	
 	// Grabber solenoids
