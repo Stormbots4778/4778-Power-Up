@@ -50,6 +50,6 @@ public class OI {
 		grab.toggleWhenPressed(new Grab(true));
 		rGrab.toggleWhenPressed(new Grab(false));
 		
-		temp_grabbers.whenPressed(new FoldGrabber(false));
+		temp_grabbers.whenPressed(new FoldGrabber());
 	}
 }
