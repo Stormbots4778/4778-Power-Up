@@ -38,8 +38,8 @@ public class OI {
 	public static Button unfoldGrabbers = new JoystickButton(joystickLeft, 7);
 	
 	public OI() {
-		shootSwitch.toggleWhenPressed(new Shoot(0.3));
-		shootScale.toggleWhenPressed(new Shoot(0.7));
+		shootSwitch.toggleWhenPressed(new Shoot(0.35));
+		shootScale.toggleWhenPressed(new Shoot(0.8));
 		intake.toggleWhenPressed(new Intake(0.3));
 		
 		lift_up.whileActive(new Lift(true));

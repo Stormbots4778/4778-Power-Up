@@ -9,17 +9,14 @@ import edu.wpi.first.wpilibj.command.Command;
  * AutoDrive.java
  * Used for moving in autonomous
  */
-public class AutoDrive extends Command {
+public class Time extends Command {
 
 	private double time;
 	private double endTime;
-	
-	private double speed;
-	
+		
 	private boolean isFinished;
 	
-    public AutoDrive(double speed, double time) {
-    		this.speed = speed;
+    public Time(double time) {
     		this.time = time;
     		isFinished = false;
     }
@@ -31,9 +28,7 @@ public class AutoDrive extends Command {
     protected void execute() {
 		if (Timer.getFPGATimestamp() >= endTime) {
 			isFinished = true;
-		}
-		
-		Robot.m_drive.tankDrive(speed,speed);
+		}	
     }
 
     protected boolean isFinished() {
@@ -41,7 +36,6 @@ public class AutoDrive extends Command {
     }
 
     protected void end() {
-    		Robot.m_drive.tankDrive(0, 0);
     }
 
     protected void interrupted() {
