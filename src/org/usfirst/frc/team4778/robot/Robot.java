@@ -27,14 +27,13 @@ public class Robot extends TimedRobot {
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 	
-	String gameData;
+	public static String gameData;
 	
 	@Override
 	public void robotInit() {
 		//m_chooser.addDefault("Default Auto", new AutoCrossLine());
 		//m_chooser.addObject("My Auto", new Auto());
 		//SmartDashboard.putData("Auto mode", m_chooser);
-		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		CameraServer.getInstance().startAutomaticCapture();
 	}
 
@@ -50,6 +49,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void autonomousInit() {
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		m_autonomousCommand = new AutoCenter();//m_chooser.getSelected();
 
 		/*

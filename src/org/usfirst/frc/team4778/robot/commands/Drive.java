@@ -19,7 +19,7 @@ public class Drive extends Command {
 
 	@Override
 	protected void execute() {
-		Robot.m_drive.arcadeDrive(-OI.joystickRight.getX(), OI.joystickLeft.getY(), true);
+		Robot.m_drive.arcadeDrive(OI.joystickRight.getY(), OI.joystickLeft.getX(), true);
 	}
 
 	@Override
