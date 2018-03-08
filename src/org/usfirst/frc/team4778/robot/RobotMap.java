@@ -2,8 +2,12 @@ package org.usfirst.frc.team4778.robot;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
+// Needed for NavX
+import edu.wpi.first.wpilibj.SerialPort;
 // Note: WPI_TalonSRX must be used to support the updated RobotDrive
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+// NavX external library
+import com.kauailabs.navx.frc.AHRS;
 
 /*
 * RobotMap
@@ -39,4 +43,7 @@ public class RobotMap {
 	
 	// Grabber solenoids
 	public static DoubleSolenoid m_grabberSolenoid  = new DoubleSolenoid(0,1);
+	
+	// NavX
+	public static AHRS ahrs = new AHRS(SerialPort.Port.kMXP);
 }
