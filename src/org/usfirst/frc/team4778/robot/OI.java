@@ -34,11 +34,12 @@ public class OI {
 	public static Button lift_up = new JoystickButton(joystickRight, 2);
 	public static Button lift_down = new JoystickButton(joystickLeft, 2);
 	
-	public static Button temp_grabbers = new JoystickButton(joystickLeft, 4);
+	public static Button foldGrabbers = new JoystickButton(joystickLeft, 6);
+	public static Button unfoldGrabbers = new JoystickButton(joystickLeft, 7);
 	
 	public OI() {
-		shootSwitch.toggleWhenPressed(new Shoot(1));
-		shootScale.toggleWhenPressed(new Shoot(0.5));
+		shootSwitch.toggleWhenPressed(new Shoot(0.3));
+		shootScale.toggleWhenPressed(new Shoot(0.7));
 		intake.toggleWhenPressed(new Intake(0.3));
 		
 		lift_up.whileActive(new Lift(true));
@@ -50,6 +51,7 @@ public class OI {
 		grab.toggleWhenPressed(new Grab(true));
 		rGrab.toggleWhenPressed(new Grab(false));
 		
-		temp_grabbers.whenPressed(new FoldGrabber(false));
+		foldGrabbers.whenPressed(new FoldGrabber(false));
+		unfoldGrabbers.whenPressed(new FoldGrabber(true));
 	}
 }

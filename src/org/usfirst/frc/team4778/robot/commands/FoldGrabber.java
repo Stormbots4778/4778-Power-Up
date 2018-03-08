@@ -12,28 +12,28 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class FoldGrabber extends Command {
 
+	private boolean isFinished = false;
 	private boolean in;
-	
+    
     public FoldGrabber(boolean in) {
-        requires(Robot.grabber);
-    		this.in = in;
+    	requires(Robot.grabber);
+    	this.in = in;
     }
 
     protected void initialize() {
     }
 
     protected void execute() {
-    	//if(RobotMap.m_liftSolenoid.get().equals(DoubleSolenoid.Value.kReverse)) {
-    		Robot.grabber.fold(in);
-    	//}
+    	Robot.grabber.fold(in);
+    	isFinished = true;
     }
 
     protected boolean isFinished() {
-        return false;
+        return isFinished;
     }
 
     protected void end() {
-    		Robot.grabber.fold(!in);
+
     }
     
     protected void interrupted() {

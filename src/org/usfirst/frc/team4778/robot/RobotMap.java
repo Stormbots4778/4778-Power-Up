@@ -1,6 +1,9 @@
 package org.usfirst.frc.team4778.robot;
 
+import com.kauailabs.navx.frc.AHRS;
+
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.VictorSP;
 
@@ -38,4 +41,6 @@ public class RobotMap {
 	
 	// Grabber solenoids
 	public static DoubleSolenoid m_grabberSolenoid  = new DoubleSolenoid(0,1);
+	
+	public static AHRS ahrs = new AHRS(SerialPort.Port.kMXP);
 }
