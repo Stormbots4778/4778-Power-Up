@@ -29,10 +29,11 @@ public class AutoDrive extends Command {
     }
 
     protected void execute() {
-		if (Timer.getFPGATimestamp() >= endTime)
+		if (Timer.getFPGATimestamp() >= endTime) {
 			isFinished = true;
+		}
 		
-		Robot.m_drive.tankDrive(speed, speed);
+		Robot.m_drive.tankDrive(-speed, speed);
     }
 
     protected boolean isFinished() {

@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Lift extends Command {
 
 	private boolean up;
+	private boolean isFinished = false;
 	
 	public Lift(boolean up) {
 		this.up = up;
@@ -23,11 +24,12 @@ public class Lift extends Command {
     protected void execute() {
     	//if(RobotMap.m_grabberSolenoid.get().equals(DoubleSolenoid.Value.kReverse)) {
     		Robot.cubemanipulator.lift(up);
+    		isFinished = true;
     	//}
     }
 
     protected boolean isFinished() {
-        return false;
+        return isFinished;
     }
 
     protected void end() {
