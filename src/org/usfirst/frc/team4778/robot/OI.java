@@ -40,7 +40,7 @@ public class OI {
 	public OI() {
 		shootSwitch.toggleWhenPressed(new Shoot(0.3));
 		shootScale.toggleWhenPressed(new Shoot(0.7));
-		intake.toggleWhenPressed(new Intake(0.3));
+		intake.toggleWhenPressed(new Intake(0.4));
 		
 		lift_up.whileActive(new Lift(true));
 		lift_down.whileActive(new Lift(false));
