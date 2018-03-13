@@ -10,7 +10,7 @@ public class FoldUp extends CommandGroup {
 
     public FoldUp() {
     	addSequential(new Lift(true));
-    	addSequential(new Time(1));
+    	addSequential(new Time(5));
     	addSequential(new FoldGrabber(true));
     }
 }

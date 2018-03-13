@@ -6,8 +6,8 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /*
- * AutoDrive.java
- * Used for moving in autonomous
+ * Time.java
+ * Used for timing
  */
 public class Time extends Command {
 

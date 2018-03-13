@@ -1,7 +1,9 @@
 package org.usfirst.frc.team4778.robot;
 
-import org.usfirst.frc.team4778.robot.commands.AutoCenter;
+import org.usfirst.frc.team4778.robot.commands.AutoCenterLeft;
+import org.usfirst.frc.team4778.robot.commands.AutoCenterRight;
 import org.usfirst.frc.team4778.robot.commands.AutoCrossLine;
+import org.usfirst.frc.team4778.robot.commands.AutoDrive;
 import org.usfirst.frc.team4778.robot.subsystems.CubeManipulator;
 import org.usfirst.frc.team4778.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team4778.robot.subsystems.Grabber;
@@ -29,13 +31,15 @@ public class Robot extends TimedRobot {
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 	
-	public static String gameData;
+	public static String gameData = "AAA";
 	
 	@Override
 	public void robotInit() {
-		//m_chooser.addDefault("Default Auto", new AutoCrossLine());
-		//m_chooser.addObject("My Auto", new Auto());
-		//SmartDashboard.putData("Auto mode", m_chooser);
+		m_chooser.addDefault("No Auto", new AutoDrive(0, 0));
+		m_chooser.addObject("Cross Line", new AutoCrossLine());
+		m_chooser.addObject("Auto Center Left", new AutoCenterLeft());
+		m_chooser.addObject("Auto Center Right", new AutoCenterRight());
+		SmartDashboard.putData("Auto mode", m_chooser);
 		CameraServer.getInstance().startAutomaticCapture();
 	}
 
@@ -53,14 +57,7 @@ public class Robot extends TimedRobot {
 	public void autonomousInit() {
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		SmartDashboard.putString("Game Data: ", gameData);
-		m_autonomousCommand = new AutoCrossLine();//m_chooser.getSelected();
-
-		/*
-		 * String autoSelected = SmartDashboard.getString("Auto Selector",
-		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
-		 * = new MyAutoCommand(); break; case "Default Auto": default:
-		 * autonomousCommand = new ExampleCommand(); break; }
-		 */
+		m_autonomousCommand = m_chooser.getSelected();
 
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.start();
@@ -82,10 +79,15 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("Grabber Motors: ", RobotMap.m_grabMotors.get());
+		SmartDashboard.putNumber("Intake Motors: ", RobotMap.m_cubeMotors.get());
+
 	}
 	
 	@Override
 	public void testPeriodic() {
 		
 	}
+	
+	
 }

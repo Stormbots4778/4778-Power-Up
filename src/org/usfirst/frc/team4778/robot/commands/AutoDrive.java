@@ -32,7 +32,6 @@ public class AutoDrive extends Command {
 		if (Timer.getFPGATimestamp() >= endTime) {
 			isFinished = true;
 		}
-		
 		Robot.m_drive.tankDrive(speed,speed);
     }
 
