@@ -13,7 +13,7 @@ public class Grabber extends Subsystem {
 	
 	private boolean isFolded;
 	
-	public void initDefaultCommand() {	}
+	public void initDefaultCommand() {	}	
     
     public void grab(boolean in) {
     		if(in) {
@@ -27,8 +27,10 @@ public class Grabber extends Subsystem {
     public void fold(boolean in) {
     	isFolded = in;
    		if(in) {
+   			isFolded = true;
 			RobotMap.m_grabberSolenoid.set(DoubleSolenoid.Value.kReverse);
 		} else {
+			isFolded = false;
 			RobotMap.m_grabberSolenoid.set(DoubleSolenoid.Value.kForward);
 		}
     }
