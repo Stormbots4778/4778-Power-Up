@@ -8,17 +8,17 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  * AutoCenter.java
  * Autonomous from left of center
  */
-public class AutoCenterRight extends CommandGroup {
+public class AutoRight extends CommandGroup {
 
-    public AutoCenterRight() {
-    	addSequential(new Time(3));
+    public AutoRight() {
+    	addSequential(new AutoTimer(3));
     	addSequential(new Lift(true));
 		addSequential(new FoldGrabber(false));
-		addSequential(new AutoDrive(0.7, 2));
-		addSequential(new Time(1));
+		addSequential(new AutoTimerDrive(0.7, 2));
+		addSequential(new AutoTimer(1));
 		if(Robot.gameData.charAt(0) == 'R') {
 			addParallel(new Shoot(0.35));
-			addSequential(new Time(1));
+			addSequential(new AutoTimer(1));
 			addSequential(new Push());
 		}
     }

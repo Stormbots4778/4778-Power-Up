@@ -35,9 +35,9 @@ public class CubeManipulator extends Subsystem {
     			RobotMap.m_liftSolenoid.set(DoubleSolenoid.Value.kForward);
     		}
     }
+    
     public void stop() {
     		RobotMap.m_cubeMotors.set(0);
-    		//RobotMap.m_liftSolenoid.set(DoubleSolenoid.Value.kOff);
     }
 }
 

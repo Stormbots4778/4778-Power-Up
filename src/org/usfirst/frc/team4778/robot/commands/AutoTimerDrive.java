@@ -6,17 +6,20 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /*
- * Time.java
- * Used for timing
+ * AutoDrive.java
+ * Used for moving in autonomous
  */
-public class Time extends Command {
+public class AutoTimerDrive extends Command {
 
 	private double time;
 	private double endTime;
-		
+	
+	private double speed;
+	
 	private boolean isFinished;
 	
-    public Time(double time) {
+    public AutoTimerDrive(double speed, double time) {
+    		this.speed = speed;
     		this.time = time;
     		isFinished = false;
     }
@@ -28,7 +31,9 @@ public class Time extends Command {
     protected void execute() {
 		if (Timer.getFPGATimestamp() >= endTime) {
 			isFinished = true;
-		}	
+		}
+		
+		Robot.m_drive.tankDrive(-speed, speed);
     }
 
     protected boolean isFinished() {
@@ -36,6 +41,7 @@ public class Time extends Command {
     }
 
     protected void end() {
+    		Robot.m_drive.tankDrive(0, 0);
     }
 
     protected void interrupted() {
