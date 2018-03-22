@@ -19,16 +19,20 @@ public class AutoEncoderTurn extends Command {
 	private PIDController pidLeft;
 	private PIDController pidRight;
 	
-	private boolean isFinished;
+	private boolean isFinished = false;
+	
+	/*
+	 * Tested P Values:
+	 * 	0.0875 for pi/4
+	 * 	0.05 for pi/2
+	 */
 	
     public AutoEncoderTurn(double speed, double angle) {
     		this.speed = speed;
     		this.angle = angle;
-    		isFinished = false;
     	
-    		//D=27.75 in
-    		pidLeft = new PIDController(0.25, 0, 0, 27.75 * angle / 2); //0.0875 for pi/4 and 0.05 for pi/2
-    		pidRight = new PIDController(0.25, 0, 0, -27.75 * angle / 2); //0.0875 for pi/4
+    		pidLeft = new PIDController(0.25, 0, 0, Robot.DISTANCE_BETWEEN_WHEELS * angle / 2);
+    		pidRight = new PIDController(0.25, 0, 0, -Robot.DISTANCE_BETWEEN_WHEELS * angle / 2);
     		pidLeft.setTolerence(0.5);
     		pidRight.setTolerence(0.5);
     		pidLeft.setOutputLimits(-speed,speed);
@@ -38,7 +42,6 @@ public class AutoEncoderTurn extends Command {
     protected void initialize() {
     		RobotMap.m_encoderLeft.reset();
     		RobotMap.m_encoderRight.reset();
-    		RobotMap.ahrs.reset();
     }
     
     protected void execute() {
@@ -48,7 +51,7 @@ public class AutoEncoderTurn extends Command {
 	    	SmartDashboard.putNumber("Left Turn PID", leftTurnPID);
 	    	SmartDashboard.putNumber("Right Turn PID", rightTurnPID);
 	    	
-			Robot.m_drive.tankDrive(leftTurnPID, rightTurnPID);
+		Robot.m_drive.tankDrive(leftTurnPID, rightTurnPID);
     }
  
     protected boolean isFinished() {
