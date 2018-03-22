@@ -2,6 +2,7 @@ package org.usfirst.frc.team4778.robot;
 
 import org.usfirst.frc.team4778.robot.commands.AutoCrossLine;
 import org.usfirst.frc.team4778.robot.commands.AutoEncoderDrive;
+import org.usfirst.frc.team4778.robot.commands.AutoEncoderTurn;
 import org.usfirst.frc.team4778.robot.commands.AutoLeft;
 import org.usfirst.frc.team4778.robot.commands.AutoRight;
 import org.usfirst.frc.team4778.robot.commands.AutoTimerDrive;
@@ -30,7 +31,7 @@ public class Robot extends TimedRobot {
 	
 	public static final double DISTANCE_BETWEEN_WHEELS = 27.5; //inches
 	public static final int WHEEL_DIAMETER = 6; 			   //inches
-	public static final int PULSES_PER_REVOLUTION = 256; 
+	public static final int PULSES_PER_REVOLUTION = 256;
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -43,7 +44,8 @@ public class Robot extends TimedRobot {
 		m_chooser.addObject("Cross Line", new AutoCrossLine());
 		m_chooser.addObject("Auto Center Left", new AutoLeft(0));
 		m_chooser.addObject("Auto Center Right", new AutoRight());
-		m_chooser.addObject("Auto Test", new AutoEncoderDrive(0.6, 9*12));
+		m_chooser.addObject("Auto Drive Test", new AutoEncoderDrive(1, 10*12));
+		m_chooser.addObject("Auto Turn Test", new AutoEncoderTurn(0.8, -Math.PI / 4));
 		SmartDashboard.putData("Auto mode", m_chooser);
 		CameraServer.getInstance().startAutomaticCapture();
 		
@@ -70,7 +72,7 @@ public class Robot extends TimedRobot {
 		gameData = "LLL";
 		SmartDashboard.putString("Game Data: ", gameData);
 		
-		m_autonomousCommand = m_chooser.getSelected();
+	m_autonomousCommand = m_chooser.getSelected();
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.start();
 		}
@@ -78,6 +80,8 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void autonomousPeriodic() {
+		SmartDashboard.putNumber("left: ", RobotMap.m_encoderLeft.getDistance());
+		SmartDashboard.putNumber("right: ", RobotMap.m_encoderRight.getDistance());
 		Scheduler.getInstance().run();
 	}
 
