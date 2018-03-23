@@ -3,10 +3,9 @@ package org.usfirst.frc.team4778.robot;
 import org.usfirst.frc.team4778.robot.commands.FoldGrabber;
 import org.usfirst.frc.team4778.robot.commands.Grab;
 import org.usfirst.frc.team4778.robot.commands.Intake;
-import org.usfirst.frc.team4778.robot.commands.IntakePosition;
+import org.usfirst.frc.team4778.robot.commands.Lift;
 import org.usfirst.frc.team4778.robot.commands.Push;
 import org.usfirst.frc.team4778.robot.commands.Shoot;
-import org.usfirst.frc.team4778.robot.commands.ShootPosition;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -18,8 +17,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 * Contains definitions for operator interfaces
 */
 public class OI {
-	public static Joystick joystickLeft = new Joystick(1);
-	public static Joystick joystickRight = new Joystick(0);
+	public static Joystick joystickLeft = new Joystick(0);
+	public static Joystick joystickRight = new Joystick(1);
 	
 	public static Button shootScale = new JoystickButton(joystickRight, 3);
 	public static Button shootSwitch = new JoystickButton(joystickLeft, 3);
@@ -32,25 +31,25 @@ public class OI {
 	public static Button pushL = new JoystickButton(joystickLeft, 1);
 	public static Button pushR = new JoystickButton(joystickRight, 1);
 	
-	//public static Button lift_up = new JoystickButton(joystickRight, 2);
-	//public static Button lift_down = new JoystickButton(joystickLeft, 2);
+	public static Button lift_up = new JoystickButton(joystickRight, 2);
+	public static Button lift_down = new JoystickButton(joystickLeft, 2);
 	
 	public static Button foldGrabbers = new JoystickButton(joystickLeft, 6);
 	public static Button unfoldGrabbers = new JoystickButton(joystickLeft, 7);
 	
-	public static Button shoot_position = new JoystickButton(joystickRight, 2);
-	public static Button intake_position = new JoystickButton(joystickLeft, 2);
+	//public static Button shoot_position = new JoystickButton(joystickRight, 2);
+	//public static Button intake_position = new JoystickButton(joystickLeft, 2);
 	
 	public OI() {
 		shootSwitch.toggleWhenPressed(new Shoot(0.4));
 		shootScale.toggleWhenPressed(new Shoot(0.8));
 		intake.toggleWhenPressed(new Intake(0.5));
 		
-		//lift_up.whileActive(new Lift(true));
-		//lift_down.whileActive(new Lift(false));
+		lift_up.whileActive(new Lift(true));
+		lift_down.whileActive(new Lift(false));
 		
-		shoot_position.whenPressed(new ShootPosition());
-		intake_position.whenPressed(new IntakePosition());
+		//shoot_position.whenPressed(new ShootPosition());
+		//intake_position.whenPressed(new IntakePosition());
 		
 		pushL.whileHeld(new Push());
 		pushR.whileHeld(new Push());

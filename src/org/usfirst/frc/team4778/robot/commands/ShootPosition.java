@@ -20,13 +20,13 @@ public class ShootPosition extends Command {
     }
 
     protected void initialize() {
-    	endTime = Timer.getFPGATimestamp() + 3; // Sets timer for 3 seconds
+    	endTime = Timer.getFPGATimestamp() + 6; // Sets timer for 6 seconds
     	Robot.cubemanipulator.lift(true); // Sets lift up
     }
 
     protected void execute() {
     	if (Timer.getFPGATimestamp() >= endTime) {
-        	Robot.grabber.fold(true);
+        	Robot.grabber.fold(true); // Folds grabbers
     		isFinished = true;
 		}
     }

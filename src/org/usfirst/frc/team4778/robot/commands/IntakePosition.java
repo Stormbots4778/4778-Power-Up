@@ -25,7 +25,7 @@ public class IntakePosition extends Command {
     }
 
     protected void execute() {
-    	if (Timer.getFPGATimestamp() >= endTime) {
+    	if(Timer.getFPGATimestamp() >= endTime) {
         	Robot.cubemanipulator.lift(false); // Sets lift down
     		isFinished = true;
 		}
