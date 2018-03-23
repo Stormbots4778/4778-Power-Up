@@ -22,10 +22,8 @@ public class Lift extends Command {
     protected void initialize() {}
 
     protected void execute() {
-    	//if(RobotMap.m_grabberSolenoid.get().equals(DoubleSolenoid.Value.kReverse)) {
-    		Robot.cubemanipulator.lift(up);
-    		isFinished = true;
-    	//}
+    	Robot.cubemanipulator.lift(up);
+    	isFinished = true;
     }
 
     protected boolean isFinished() {

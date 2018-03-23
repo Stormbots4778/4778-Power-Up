@@ -17,8 +17,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 * Contains definitions for operator interfaces
 */
 public class OI {
-	public static Joystick joystickLeft = new Joystick(1);
-	public static Joystick joystickRight = new Joystick(0);
+	public static Joystick joystickLeft = new Joystick(0);
+	public static Joystick joystickRight = new Joystick(1);
 	
 	public static Button shootScale = new JoystickButton(joystickRight, 3);
 	public static Button shootSwitch = new JoystickButton(joystickLeft, 3);
@@ -37,6 +37,9 @@ public class OI {
 	public static Button foldGrabbers = new JoystickButton(joystickLeft, 6);
 	public static Button unfoldGrabbers = new JoystickButton(joystickLeft, 7);
 	
+	//public static Button shoot_position = new JoystickButton(joystickRight, 2);
+	//public static Button intake_position = new JoystickButton(joystickLeft, 2);
+	
 	public OI() {
 		shootSwitch.toggleWhenPressed(new Shoot(0.4));
 		shootScale.toggleWhenPressed(new Shoot(0.8));
@@ -44,6 +47,9 @@ public class OI {
 		
 		lift_up.whileActive(new Lift(true));
 		lift_down.whileActive(new Lift(false));
+		
+		//shoot_position.whenPressed(new ShootPosition());
+		//intake_position.whenPressed(new IntakePosition());
 		
 		pushL.whileHeld(new Push());
 		pushR.whileHeld(new Push());
