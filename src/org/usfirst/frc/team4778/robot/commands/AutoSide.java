@@ -5,8 +5,8 @@ import org.usfirst.frc.team4778.robot.Robot;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /*
- * AutoCenter.java
- * Autonomous from left of center
+ * AutoSide.java
+ * Autonomous from either left or right side
  * 
  * Priority: 0 = switch
  * 			 1 = scale
