@@ -46,8 +46,7 @@ public class Robot extends TimedRobot {
 		m_chooser.addObject("Cross Line", new AutoCrossLine());
 		m_chooser.addObject("Auto Left", new AutoSide('L', 0, false));
 		m_chooser.addObject("Auto Right", new AutoSide('R', 0, false));
-		m_chooser.addObject("Auto Center (left)", new AutoCenter(false));
-		m_chooser.addObject("Auto Center (right)", new AutoCenter(false));
+		m_chooser.addObject("Auto Center", new AutoCenter(false));
 		SmartDashboard.putData("Auto mode", m_chooser);
 		
 		// Initialize the camera server
