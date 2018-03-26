@@ -1,15 +1,13 @@
 package org.usfirst.frc.team4778.robot;
 
 import org.usfirst.frc.team4778.robot.commands.AutoCrossLine;
-import org.usfirst.frc.team4778.robot.commands.AutoLeft;
-import org.usfirst.frc.team4778.robot.commands.AutoRight;
+import org.usfirst.frc.team4778.robot.commands.AutoSide;
 import org.usfirst.frc.team4778.robot.commands.AutoTimerDrive;
 import org.usfirst.frc.team4778.robot.subsystems.CubeManipulator;
 import org.usfirst.frc.team4778.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team4778.robot.subsystems.Grabber;
 
 import edu.wpi.first.wpilibj.CameraServer;
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -32,7 +30,7 @@ public class Robot extends TimedRobot {
 	public static final int WHEEL_DIAMETER = 6; 			   //inches
 	public static final int PULSES_PER_REVOLUTION = 256; //PPR
 
-	private static double totalDistance = 0;
+	private static double totalDistance = 0; // ignore this
 	
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -41,14 +39,18 @@ public class Robot extends TimedRobot {
 	
 	@Override
 	public void robotInit() {
+		
+		// Auto Chooser
 		m_chooser.addDefault("No Auto (lame)", new AutoTimerDrive(0, 0));
 		m_chooser.addObject("Cross Line", new AutoCrossLine());
-		m_chooser.addObject("Auto Center Left", new AutoLeft(0, false));
-		m_chooser.addObject("Auto Center Right", new AutoRight());
+		m_chooser.addObject("Auto Left", new AutoSide('L', 0, false));
+		m_chooser.addObject("Auto Right", new AutoSide('R', 0, false));
 		SmartDashboard.putData("Auto mode", m_chooser);
 		
+		// Initialize the camera server
 		CameraServer.getInstance().startAutomaticCapture();
 		
+		// Set encoder pulse values
 		RobotMap.m_encoderLeft.setDistancePerPulse((WHEEL_DIAMETER * Math.PI) / PULSES_PER_REVOLUTION);
 		RobotMap.m_encoderRight.setDistancePerPulse((WHEEL_DIAMETER * Math.PI) / PULSES_PER_REVOLUTION);
 	}
@@ -64,6 +66,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		// Get game data from FMS
+		// TODO remember to uncomment this later
 		//gameData = DriverStation.getInstance().getGameSpecificMessage();
 		gameData = "LLL"; // garbage
 		SmartDashboard.putString("Game Data: ", gameData);
@@ -92,15 +95,16 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		
+		// Push status of grabber motors and intake motors to the smart dashboard
 		SmartDashboard.putNumber("Grabber Motors: ", RobotMap.m_grabMotors.get());
 		SmartDashboard.putNumber("Intake Motors: ", RobotMap.m_cubeMotors.get());
 		
+		// ignore this
 		totalDistance += Math.abs( (RobotMap.m_encoderLeft.getDistance() + RobotMap.m_encoderRight.getDistance()) / 2);
 		SmartDashboard.putNumber("Total Distance: ", totalDistance);
 	}
 	
 	@Override
-	public void testPeriodic() {
-		
-	}
+	public void testPeriodic() {}
 }
