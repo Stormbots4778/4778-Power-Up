@@ -43,7 +43,7 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		m_chooser.addDefault("No Auto (lame)", new AutoTimerDrive(0, 0));
 		m_chooser.addObject("Cross Line", new AutoCrossLine());
-		m_chooser.addObject("Auto Center Left", new AutoLeft(0));
+		m_chooser.addObject("Auto Center Left", new AutoLeft(0, false));
 		m_chooser.addObject("Auto Center Right", new AutoRight());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		
@@ -64,7 +64,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		// Get game data from FMS
-		gameData = DriverStation.getInstance().getGameSpecificMessage();
+		//gameData = DriverStation.getInstance().getGameSpecificMessage();
 		gameData = "LLL"; // garbage
 		SmartDashboard.putString("Game Data: ", gameData);
 		
