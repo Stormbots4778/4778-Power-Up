@@ -21,11 +21,11 @@ public class AutoSide extends CommandGroup {
 		addSequential(new FoldGrabber(false));
 		
 		// Everything else
-		if(priority == 0) switchAuto(side);
-		else scaleAuto(side);
-		
-		if(priority == 1) scaleAuto(side);
-		else switchAuto(side);
+		if(priority == 0) {
+			switchAuto(side);
+		} else {
+			scaleAuto(side);
+		}
 
     }
     
@@ -42,6 +42,8 @@ public class AutoSide extends CommandGroup {
         		addParallel(new Shoot(0.35)); // 35% power
         		addSequential(new AutoTimer(0.5)); // give it half a second to spin up
         		addSequential(new Push());
+    		} else {
+    			scaleAuto(side);
     		}
     }
     
@@ -58,6 +60,8 @@ public class AutoSide extends CommandGroup {
 			addParallel(new Shoot(0.8)); // 80% power
 			addSequential(new AutoTimer(1)); // give it one second to spin up
 			addSequential(new Push());
+    		} else {
+    			switchAuto(side);
     		}
     }
 }
