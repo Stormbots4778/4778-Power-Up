@@ -22,7 +22,10 @@ public class AutoSide extends CommandGroup {
 		
 		// Everything else
 		if(priority == 0) switchAuto(side);
-		else if(priority == 1) scaleAuto(side);
+		else scaleAuto(side);
+		
+		if(priority == 1) scaleAuto(side);
+		else switchAuto(side);
 
     }
     
