@@ -20,6 +20,7 @@ public class AutoEncoderTurn extends Command {
 	private PIDController pidLeft;
 	private PIDController pidRight;
 	
+	private double time;
 	private double endTime;
 	
 	private boolean isFinished;
@@ -30,9 +31,10 @@ public class AutoEncoderTurn extends Command {
 	 * 	0.05 for pi/2
 	 */
 	
-    public AutoEncoderTurn(double speed, double angle) {
+    public AutoEncoderTurn(double speed, double angle, double time) {
     		this.speed = speed;
     		this.angle = angle;
+    		this.time = time;
     }
 
     protected void initialize() {
@@ -48,6 +50,8 @@ public class AutoEncoderTurn extends Command {
     		pidRight.setTolerence(0.5);
     		pidLeft.setOutputLimits(-speed,speed);
     		pidRight.setOutputLimits(-speed,speed);
+
+    		endTime = Timer.getFPGATimestamp() + time;
     }
     
     protected void execute() {
@@ -59,15 +63,7 @@ public class AutoEncoderTurn extends Command {
 	    	
 		Robot.m_drive.tankDrive(leftTurnPID, rightTurnPID);
 		
-	    	/*
-	    	 * TODO
-	    	 * Test this code.
-	    	 * It should have the pid stop one second after it thinks it reaches its target.
-	    	 */
-	    	if(pidLeft.onTarget() || pidRight.onTarget()) {
-	    		if(endTime == 0) endTime = Timer.getFPGATimestamp() + 1; // Sets it up to wait for one second
-	    		isFinished = endTime >= Timer.getFPGATimestamp();
-	    	}
+		isFinished = Timer.getFPGATimestamp() > endTime;
     }
  
     protected boolean isFinished() {
