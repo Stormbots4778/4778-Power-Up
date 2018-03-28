@@ -10,7 +10,7 @@ public class AutoCrossLine extends CommandGroup {
 
     public AutoCrossLine() {
 			addSequential(new Lift(true));
-    		addSequential(new FoldGrabber(false));
+    		addSequential(new FoldGrabber(true));
     		addSequential(new AutoTimerDrive(0.75, 1.25));
     }
 }

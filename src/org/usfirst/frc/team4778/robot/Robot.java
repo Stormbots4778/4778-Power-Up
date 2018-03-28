@@ -3,7 +3,6 @@ package org.usfirst.frc.team4778.robot;
 import org.usfirst.frc.team4778.robot.commands.AutoCenter;
 import org.usfirst.frc.team4778.robot.commands.AutoCrossLine;
 import org.usfirst.frc.team4778.robot.commands.AutoSide;
-import org.usfirst.frc.team4778.robot.commands.AutoTest;
 import org.usfirst.frc.team4778.robot.commands.AutoTimerDrive;
 import org.usfirst.frc.team4778.robot.subsystems.CubeManipulator;
 import org.usfirst.frc.team4778.robot.subsystems.Drivetrain;
@@ -37,7 +36,7 @@ public class Robot extends TimedRobot {
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 	
-	public static String gameData = "RLL"; // Sets as a garbage value
+	public static String gameData = "LRL"; // Sets as a garbage value
 	
 	@Override
 	public void robotInit() {
@@ -45,7 +44,6 @@ public class Robot extends TimedRobot {
 		// Auto Chooser
 		m_chooser.addDefault("No Auto (lame)", new AutoTimerDrive(0, 0));
 		m_chooser.addObject("Cross Line", new AutoCrossLine());
-		m_chooser.addObject("AutoTest", new AutoTest());
 		m_chooser.addObject("Auto Left", new AutoSide('L', 0, false));
 		m_chooser.addObject("Auto Right", new AutoSide('R', 0, false));
 		m_chooser.addObject("Auto Center", new AutoCenter(false));

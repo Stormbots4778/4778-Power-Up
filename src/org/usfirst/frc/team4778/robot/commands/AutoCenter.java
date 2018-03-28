@@ -37,6 +37,6 @@ public class AutoCenter extends CommandGroup {
     		// Shoot
     		addParallel(new Shoot(0.35), 2); // 35% power
     		addSequential(new AutoTimer(0.5)); // give it half a second to spin up
-    		addSequential(new Push());		
+    		addSequential(new Push());
     }
 }
