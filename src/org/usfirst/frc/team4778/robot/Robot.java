@@ -22,17 +22,21 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 * Main robot class
 */
 public class Robot extends TimedRobot {
+	
+	// Subsystems
 	public static final Drivetrain drivetrain = new Drivetrain();
 	public static final DifferentialDrive m_drive = new DifferentialDrive(RobotMap.m_left, RobotMap.m_right);
 	public static final CubeManipulator cubemanipulator = new CubeManipulator();
 	public static final Grabber grabber = new Grabber();
+	
 	public static OI oi = new OI();
 	
-	public static final double DISTANCE_BETWEEN_WHEELS = 27.75; //inches
-	public static final int WHEEL_DIAMETER = 6; 			   //inches
-	public static final int PULSES_PER_REVOLUTION = 256; //PPR
+	// Constant Values
+	public static final double DISTANCE_BETWEEN_WHEELS = 27.75;	//inches
+	public static final int WHEEL_DIAMETER = 6; 			   		//inches
+	public static final int PULSES_PER_REVOLUTION = 256; 			//PPR
 
-	private static double totalDistance = 0; // ignore this
+	private static double totalDistance = 0;
 	
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -69,11 +73,12 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void autonomousInit() {
+		
 		// Get game data from FMS
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		SmartDashboard.putString("Game Data: ", gameData);
 		
-	m_autonomousCommand = m_chooser.getSelected();
+		m_autonomousCommand = m_chooser.getSelected();
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.start();
 		}
@@ -102,9 +107,9 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Grabber Motors: ", RobotMap.m_grabMotors.get());
 		SmartDashboard.putNumber("Intake Motors: ", RobotMap.m_cubeMotors.get());
 		
-		// ignore this
+		// a lil fun
 		totalDistance += Math.abs( (RobotMap.m_encoderLeft.getDistance() + RobotMap.m_encoderRight.getDistance()) / 2);
-		SmartDashboard.putNumber("Total Distance: ", totalDistance);
+		SmartDashboard.putNumber("Total Distance (let Ethan know if this looks like it's working correctly): ", totalDistance);
 	}
 	
 	@Override
