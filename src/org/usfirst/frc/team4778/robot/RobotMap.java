@@ -1,13 +1,11 @@
 package org.usfirst.frc.team4778.robot;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
-// Needed for NavX
-import edu.wpi.first.wpilibj.SerialPort;
 // Note: WPI_TalonSRX must be used to support the updated RobotDrive
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-// NavX external library
-import com.kauailabs.navx.frc.AHRS;
+
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 
 /*
 * RobotMap
@@ -19,11 +17,13 @@ public class RobotMap {
 	public static WPI_TalonSRX m_frontLeft = new WPI_TalonSRX(7);
 	public static WPI_TalonSRX m_rearLeft  = new WPI_TalonSRX(9);
 	static SpeedControllerGroup m_left = new SpeedControllerGroup(m_frontLeft, m_rearLeft);
+	public static Encoder m_encoderLeft = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
 	
 	// Right drivetrain motor controllers
 	public static WPI_TalonSRX m_frontRight = new WPI_TalonSRX(10);
 	public static WPI_TalonSRX m_rearRight  = new WPI_TalonSRX(6);
 	static SpeedControllerGroup m_right = new SpeedControllerGroup(m_frontRight, m_rearRight);
+	public static Encoder m_encoderRight = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
 
 	// Cube manipulator motor controllers (relative to robot's perspective)
 	public static WPI_TalonSRX m_cubeBackLeft   = new WPI_TalonSRX(8);
@@ -43,7 +43,4 @@ public class RobotMap {
 	
 	// Grabber solenoids
 	public static DoubleSolenoid m_grabberSolenoid  = new DoubleSolenoid(0,1);
-	
-	// NavX
-	public static AHRS ahrs = new AHRS(SerialPort.Port.kMXP);
 }

@@ -34,6 +34,6 @@ public class Lift extends Command {
     }
 
     protected void interrupted() {
-    	end();
+    		end();
     }
 }

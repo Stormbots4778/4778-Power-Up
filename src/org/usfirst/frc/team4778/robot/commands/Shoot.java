@@ -21,7 +21,6 @@ public class Shoot extends Command {
 
     protected void execute() {
     		Robot.cubemanipulator.shoot(speed);
-    		
     }
 
     protected boolean isFinished() {
