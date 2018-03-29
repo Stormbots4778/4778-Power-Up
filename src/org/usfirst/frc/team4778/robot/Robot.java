@@ -33,8 +33,8 @@ public class Robot extends TimedRobot {
 	
 	// Constant Values
 	public static final double DISTANCE_BETWEEN_WHEELS = 27.75;	//inches
-	public static final int WHEEL_DIAMETER = 6; 			   		//inches
-	public static final int PULSES_PER_REVOLUTION = 256; 			//PPR
+	public static final int WHEEL_DIAMETER = 6; 			   	//inches
+	public static final int PULSES_PER_REVOLUTION = 256; 		//PPR
 
 	private static double totalDistance = 0;
 	
@@ -49,10 +49,10 @@ public class Robot extends TimedRobot {
 		// Auto Chooser
 		m_chooser.addDefault("No Auto (lame)", new AutoTimerDrive(0, 0));
 		m_chooser.addObject("Cross Line", new AutoCrossLine());
-		m_chooser.addObject("Auto Left (switch)", new AutoSide('L', 0, false));
-		m_chooser.addObject("Auto Left (scale)", new AutoSide('L', 1, false));
-		m_chooser.addObject("Auto Right (switch", new AutoSide('R', 0, false));
-		m_chooser.addObject("Auto Right (scale)", new AutoSide('R', 1, false));
+		m_chooser.addObject("Auto Left (switch priority)", new AutoSide('L', 0, false));
+		m_chooser.addObject("Auto Left (scale priority)", new AutoSide('L', 1, false));
+		m_chooser.addObject("Auto Right (switch priority)", new AutoSide('R', 0, false));
+		m_chooser.addObject("Auto Right (scale priority)", new AutoSide('R', 1, false));
 		m_chooser.addObject("Auto Center", new AutoCenter(false));
 		SmartDashboard.putData("Auto mode", m_chooser);
 		
