@@ -50,8 +50,10 @@ public class Robot extends TimedRobot {
 		// Auto Chooser
 		m_chooser.addDefault("No Auto (lame)", new AutoTimerDrive(0, 0));
 		m_chooser.addObject("Cross Line", new AutoCrossLine());
-		m_chooser.addObject("Auto Left", new AutoSide('L', 0, false));
-		m_chooser.addObject("Auto Right", new AutoSide('R', 0, false));
+		m_chooser.addObject("Auto Left (switch)", new AutoSide('L', 0, false));
+		m_chooser.addObject("Auto Left (scale)", new AutoSide('L', 1, false));
+		m_chooser.addObject("Auto Right (switch", new AutoSide('R', 0, false));
+		m_chooser.addObject("Auto Right (scale)", new AutoSide('R', 1, false));
 		m_chooser.addObject("Auto Center", new AutoCenter(false));
 		SmartDashboard.putData("Auto mode", m_chooser);
 		
