@@ -48,7 +48,7 @@ public class AutoSide extends CommandGroup {
 			if(side == 'L') addSequential(new AutoEncoderTurn(0.8, Math.PI/2, 2.5)); // 90 degrees cw for left
 			else if(side == 'R') addSequential(new AutoEncoderTurn(0.8, -Math.PI/2, 2.5)); // or 90 degrees ccw for right
 			
-			addSequential(new AutoEncoderDrive(0.7, 40, 3)); //Drive forward against the switch (20 inches)
+			addSequential(new AutoEncoderDrive(0.7, 40, 3)); //Drive forward against the switch (40 inches)
 			
     		// Shoot
     		addParallel(new Shoot(0.35), 2); // 35% power
@@ -57,12 +57,12 @@ public class AutoSide extends CommandGroup {
     }
     
     private void scaleAuto(char side) {
-			addSequential(new AutoEncoderDrive(0.7, 280, 8)); // Drive forward 152 inches (23')
+			addSequential(new AutoEncoderDrive(0.7, 280, 8)); // Drive forward 280 inches (23' 4")
 			
 			if(side == 'L') addSequential(new AutoEncoderTurn(0.8, 1.1, 2.5)); // ~63 degrees cw for left
 			else if(side == 'R')  addSequential(new AutoEncoderTurn(0.8, -1.1, 2.5)); // ~63 degrees ccw for right
 			
-			addSequential(new AutoEncoderDrive(0.7, -18, 2)); // Drive backwards 25.5 inches (2' 1.5")
+			addSequential(new AutoEncoderDrive(0.7, -18, 2)); // Drive backwards 18 inches (1' 6")
 			
 			// Shoot
 			addParallel(new Shoot(0.8), 2); // 80% power
@@ -71,11 +71,11 @@ public class AutoSide extends CommandGroup {
     }
     
     private void crossLineAuto(char side) {
-    	addSequential(new AutoEncoderDrive(0.7, 220, 5)); // Drive forward 152 inches (17' 10") ESTIMATE, will measure later
+    	addSequential(new AutoEncoderDrive(0.7, 220, 5)); // Drive forward 220 inches (18' 4")
     	
 		if(side == 'L') addSequential(new AutoEncoderTurn(0.8, Math.PI/2, 2.5)); // 90 degrees cw for left
 		else if(side == 'R') addSequential(new AutoEncoderTurn(0.8, -Math.PI/2, 2.5)); // or 90 degrees ccw for right
 		
-		addSequential(new AutoEncoderDrive(0.7, 144, 4)); // Drive forward 152 inches (12') ESTIMATE, will measure later
+		addSequential(new AutoEncoderDrive(0.7, 144, 4)); // Drive forward 144 inches (12')
     }
 }
