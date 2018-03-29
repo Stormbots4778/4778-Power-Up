@@ -41,7 +41,7 @@ public class Robot extends TimedRobot {
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 	
-	public static String gameData;
+	public static String gameData = "LLL";
 	
 	@Override
 	public void robotInit() {
