@@ -36,20 +36,14 @@ public class OI {
 	
 	public static Button foldGrabbers = new JoystickButton(joystickLeft, 6);
 	public static Button unfoldGrabbers = new JoystickButton(joystickLeft, 7);
-	
-	//public static Button shoot_position = new JoystickButton(joystickRight, 2);
-	//public static Button intake_position = new JoystickButton(joystickLeft, 2);
-	
+		
 	public OI() {
 		shootSwitch.toggleWhenPressed(new Shoot(0.4));
-		shootScale.toggleWhenPressed(new Shoot(0.8));
-		intake.toggleWhenPressed(new Intake(0.5));
+		shootScale.toggleWhenPressed(new Shoot(0.7));
+		intake.toggleWhenPressed(new Intake(0.4));
 		
 		lift_up.whileActive(new Lift(true));
 		lift_down.whileActive(new Lift(false));
-		
-		//shoot_position.whenPressed(new ShootPosition());
-		//intake_position.whenPressed(new IntakePosition());
 		
 		pushL.whileHeld(new Push());
 		pushR.whileHeld(new Push());

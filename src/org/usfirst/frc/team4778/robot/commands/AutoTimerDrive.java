@@ -33,7 +33,7 @@ public class AutoTimerDrive extends Command {
 			isFinished = true;
 		}
 		
-		Robot.m_drive.tankDrive(-speed, speed);
+		Robot.m_drive.tankDrive(speed, speed);
     }
 
     protected boolean isFinished() {

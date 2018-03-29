@@ -15,7 +15,7 @@ public class AutoCenter extends CommandGroup {
     		// Init
     		if(shouldWait) addSequential(new AutoTimer(3));
     		addSequential(new Lift(true));
-    		addSequential(new FoldGrabber(true));
+    		//addSequential(new FoldGrabber(true));
 		
     		if(Robot.gameData.charAt(0) == 'L') {
 					// Drive

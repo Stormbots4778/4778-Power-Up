@@ -18,7 +18,7 @@ public class AutoSide extends CommandGroup {
     		// Init
     		if(shouldWait) addSequential(new AutoTimer(3));
     		addSequential(new Lift(true));
-    		addSequential(new FoldGrabber(true));
+    		//addSequential(new FoldGrabber(true));
 		
     		// Logic Stuff
     		if(priority == 0) {

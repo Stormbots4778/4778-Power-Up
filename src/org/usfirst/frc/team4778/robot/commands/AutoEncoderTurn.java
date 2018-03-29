@@ -67,7 +67,7 @@ public class AutoEncoderTurn extends Command {
     }
  
     protected boolean isFinished() {
-        	return isFinished;
+    	return isFinished;
     }
     
     protected void end() {

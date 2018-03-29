@@ -3,13 +3,13 @@ package org.usfirst.frc.team4778.robot;
 import org.usfirst.frc.team4778.robot.commands.AutoCenter;
 import org.usfirst.frc.team4778.robot.commands.AutoCrossLine;
 import org.usfirst.frc.team4778.robot.commands.AutoSide;
+import org.usfirst.frc.team4778.robot.commands.AutoTest;
 import org.usfirst.frc.team4778.robot.commands.AutoTimerDrive;
 import org.usfirst.frc.team4778.robot.subsystems.CubeManipulator;
 import org.usfirst.frc.team4778.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team4778.robot.subsystems.Grabber;
 
 import edu.wpi.first.wpilibj.CameraServer;
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -42,6 +42,7 @@ public class Robot extends TimedRobot {
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 	
 	public static String gameData = "LLL";
+	//public static String gameData;
 	
 	@Override
 	public void robotInit() {
@@ -54,6 +55,7 @@ public class Robot extends TimedRobot {
 		m_chooser.addObject("Auto Right (switch priority)", new AutoSide('R', 0, false));
 		m_chooser.addObject("Auto Right (scale priority)", new AutoSide('R', 1, false));
 		m_chooser.addObject("Auto Center", new AutoCenter(false));
+		m_chooser.addObject("Auto Test", new AutoTest());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		
 		// Initialize the camera server
@@ -76,7 +78,7 @@ public class Robot extends TimedRobot {
 	public void autonomousInit() {
 		
 		// Get game data from FMS
-		gameData = DriverStation.getInstance().getGameSpecificMessage();
+		//gameData = DriverStation.getInstance().getGameSpecificMessage();
 		SmartDashboard.putString("Game Data: ", gameData);
 		
 		m_autonomousCommand = m_chooser.getSelected();
@@ -105,8 +107,10 @@ public class Robot extends TimedRobot {
 		Scheduler.getInstance().run();
 		
 		// Push status of grabber motors and intake motors to the smart dashboard
-		SmartDashboard.putNumber("Grabber Motors: ", RobotMap.m_grabMotors.get());
+		//SmartDashboard.putNumber("Grabber Motors: ", RobotMap.m_grabMotors.get());
 		SmartDashboard.putNumber("Intake Motors: ", RobotMap.m_cubeMotors.get());
+		SmartDashboard.putNumber("Left Encoder", RobotMap.m_encoderLeft.getDistance());
+		SmartDashboard.putNumber("Right Encoder", RobotMap.m_encoderRight.getDistance());
 		
 		// a lil fun
 		totalDistance += Math.abs( (RobotMap.m_encoderLeft.getDistance() + RobotMap.m_encoderRight.getDistance()) / 2);
