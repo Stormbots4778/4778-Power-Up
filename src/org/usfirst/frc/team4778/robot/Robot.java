@@ -42,7 +42,6 @@ public class Robot extends TimedRobot {
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 	
 	public static String gameData;
-	//public static String gameData = "LRL"; // Sets as a garbage value
 	
 	@Override
 	public void robotInit() {
