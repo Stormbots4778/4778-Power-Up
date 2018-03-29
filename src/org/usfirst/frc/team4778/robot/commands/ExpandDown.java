@@ -10,7 +10,7 @@ public class ExpandDown extends CommandGroup {
 
     public ExpandDown() {
     	addSequential(new FoldGrabber(false));
-    	addSequential(new Time(5));
+    	addSequential(new AutoTimer(5));
     	addSequential(new Lift(false));
     }
 }
