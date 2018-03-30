@@ -43,8 +43,8 @@ public class AutoEncoderDrive extends Command {
     		masterPID.setTolerence(3);
     		masterPID.setOutputLimits(-speed, speed);
     		
-    		slavePID = new PIDController(0.25, 0, 0, RobotMap.m_encoderLeft.getDistance());
-    		slavePID.setTolerence(3);
+    		slavePID = new PIDController(0.75, 0, 0, 0);
+    		slavePID.setTolerence(1);
     		slavePID.setOutputLimits(-speed, speed);
     		
     		endTime = Timer.getFPGATimestamp() + time;

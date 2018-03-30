@@ -15,9 +15,9 @@ public class Grabber extends Subsystem {
     
     public void grab(boolean in) {
     	if(in) {
-    		RobotMap.m_grabMotors.set(0.25);
+    		RobotMap.m_grabMotors.set(0.35);
     	} else {
-    		RobotMap.m_grabMotors.set(-0.25);
+    		RobotMap.m_grabMotors.set(-0.35);
     	}
     	return;
     }

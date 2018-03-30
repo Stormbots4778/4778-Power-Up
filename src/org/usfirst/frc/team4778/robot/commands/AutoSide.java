@@ -57,12 +57,12 @@ public class AutoSide extends CommandGroup {
     }
     
     private void scaleAuto(char side) {
-			addSequential(new AutoEncoderDrive(0.7, 276, 8)); // Drive forward 280 inches (23' 4")
+			addSequential(new AutoEncoderDrive(0.7, 276, 6)); // Drive forward 280 inches (23' 4")
 			
-			if(side == 'L') addSequential(new AutoEncoderTurn(0.7, 1.1, 2.5)); // ~63 degrees cw for left
-			else if(side == 'R')  addSequential(new AutoEncoderTurn(0.7, -1.1, 2.5)); // ~63 degrees ccw for right
+			if(side == 'L') addSequential(new AutoEncoderTurn(0.7, 1.1, 1.5)); // ~63 degrees cw for left
+			else if(side == 'R')  addSequential(new AutoEncoderTurn(0.7, -1.1, 1.5)); // ~63 degrees ccw for right
 			
-			addSequential(new AutoEncoderDrive(0.7, -25.5, 2)); // Drive backwards 18 inches (1' 6")
+			addSequential(new AutoEncoderDrive(0.6, -25.5, 2)); // Drive backwards 18 inches (1' 6")
 			
 			// Shoot
 			addParallel(new Shoot(0.8), 2); // 80% power
