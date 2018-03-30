@@ -18,7 +18,7 @@ public class AutoSide extends CommandGroup {
     		// Init
     		if(shouldWait) addSequential(new AutoTimer(3));
     		addSequential(new Lift(true));
-    		//addSequential(new FoldGrabber(true));
+    		addSequential(new FoldGrabber(true));
 		
     		// Logic Stuff
     		if(priority == 0) {
@@ -45,8 +45,8 @@ public class AutoSide extends CommandGroup {
     private void switchAuto(char side) {
 			addSequential(new AutoEncoderDrive(0.7, 152, 3)); // Drive forward 152 inches (12' 8")
 			
-			if(side == 'L') addSequential(new AutoEncoderTurn(0.8, Math.PI/2, 2.5)); // 90 degrees cw for left
-			else if(side == 'R') addSequential(new AutoEncoderTurn(0.8, -Math.PI/2, 2.5)); // or 90 degrees ccw for right
+			if(side == 'L') addSequential(new AutoEncoderTurn(0.7, Math.PI/2, 2.5)); // 90 degrees cw for left
+			else if(side == 'R') addSequential(new AutoEncoderTurn(0.7, -Math.PI/2, 2.5)); // or 90 degrees ccw for right
 			
 			addSequential(new AutoEncoderDrive(0.7, 40, 3)); //Drive forward against the switch (40 inches)
 			
@@ -57,12 +57,12 @@ public class AutoSide extends CommandGroup {
     }
     
     private void scaleAuto(char side) {
-			addSequential(new AutoEncoderDrive(0.7, 280, 8)); // Drive forward 280 inches (23' 4")
+			addSequential(new AutoEncoderDrive(0.7, 276, 8)); // Drive forward 280 inches (23' 4")
 			
-			if(side == 'L') addSequential(new AutoEncoderTurn(0.8, 1.1, 2.5)); // ~63 degrees cw for left
-			else if(side == 'R')  addSequential(new AutoEncoderTurn(0.8, -1.1, 2.5)); // ~63 degrees ccw for right
+			if(side == 'L') addSequential(new AutoEncoderTurn(0.7, 1.1, 2.5)); // ~63 degrees cw for left
+			else if(side == 'R')  addSequential(new AutoEncoderTurn(0.7, -1.1, 2.5)); // ~63 degrees ccw for right
 			
-			addSequential(new AutoEncoderDrive(0.7, -18, 2)); // Drive backwards 18 inches (1' 6")
+			addSequential(new AutoEncoderDrive(0.7, -25.5, 2)); // Drive backwards 18 inches (1' 6")
 			
 			// Shoot
 			addParallel(new Shoot(0.8), 2); // 80% power
@@ -73,8 +73,8 @@ public class AutoSide extends CommandGroup {
     private void crossLineAuto(char side) {
     	addSequential(new AutoEncoderDrive(0.7, 220, 5)); // Drive forward 220 inches (18' 4")
     	
-		if(side == 'L') addSequential(new AutoEncoderTurn(0.8, Math.PI/2, 2.5)); // 90 degrees cw for left
-		else if(side == 'R') addSequential(new AutoEncoderTurn(0.8, -Math.PI/2, 2.5)); // or 90 degrees ccw for right
+		if(side == 'L') addSequential(new AutoEncoderTurn(0.7, Math.PI/2, 2.5)); // 90 degrees cw for left
+		else if(side == 'R') addSequential(new AutoEncoderTurn(0.7, -Math.PI/2, 2.5)); // or 90 degrees ccw for right
 		
 		addSequential(new AutoEncoderDrive(0.7, 144, 4)); // Drive forward 144 inches (12')
     }

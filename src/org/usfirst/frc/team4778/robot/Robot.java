@@ -114,7 +114,7 @@ public class Robot extends TimedRobot {
 		
 		// a lil fun
 		totalDistance += Math.abs( (RobotMap.m_encoderLeft.getDistance() + RobotMap.m_encoderRight.getDistance()) / 2);
-		SmartDashboard.putNumber("Total Distance (let Ethan know if this looks like it's working correctly): ", totalDistance);
+		SmartDashboard.putNumber("Total Distance: ", totalDistance);
 	}
 	
 	@Override

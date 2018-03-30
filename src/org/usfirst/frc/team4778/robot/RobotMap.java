@@ -23,7 +23,7 @@ public class RobotMap {
 	public static WPI_TalonSRX m_frontRight = new WPI_TalonSRX(10);
 	public static WPI_TalonSRX m_rearRight  = new WPI_TalonSRX(6);
 	static SpeedControllerGroup m_right = new SpeedControllerGroup(m_frontRight, m_rearRight);
-	public static Encoder m_encoderRight = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
+	public static Encoder m_encoderRight = new Encoder(2, 3, true, Encoder.EncodingType.k4X);
 
 	// Cube manipulator motor controllers (relative to robot's perspective)
 	public static WPI_TalonSRX m_cubeBackLeft   = new WPI_TalonSRX(8);

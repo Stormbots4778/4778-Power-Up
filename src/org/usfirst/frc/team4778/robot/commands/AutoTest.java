@@ -10,8 +10,8 @@ public class AutoTest extends CommandGroup {
 
     public AutoTest() {
 		addSequential(new Lift(true));
-		//addSequential(new FoldGrabber(true));	
+		addSequential(new FoldGrabber(true));	
     	addSequential(new AutoEncoderTurn(0.7, Math.PI/3, 5));
-		//addSequential(new AutoEncoderDrive(0.7, 200, 5));
+		//addSequential(new AutoEncoderDrive(0.7, 24, 5));
     }
 }
