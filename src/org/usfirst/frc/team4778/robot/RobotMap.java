@@ -3,6 +3,7 @@ package org.usfirst.frc.team4778.robot;
 // Note: WPI_TalonSRX must be used to support the updated RobotDrive
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
@@ -43,4 +44,6 @@ public class RobotMap {
 	
 	// Grabber solenoids
 	public static DoubleSolenoid m_grabberSolenoid  = new DoubleSolenoid(0,1);
+	
+	public static Compressor m_compressor = new Compressor();
 }

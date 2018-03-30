@@ -10,6 +10,7 @@ import org.usfirst.frc.team4778.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team4778.robot.subsystems.Grabber;
 
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -78,7 +79,7 @@ public class Robot extends TimedRobot {
 	public void autonomousInit() {
 		
 		// Get game data from FMS
-		//gameData = DriverStation.getInstance().getGameSpecificMessage();
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		SmartDashboard.putString("Game Data: ", gameData);
 		
 		m_autonomousCommand = m_chooser.getSelected();
@@ -115,6 +116,8 @@ public class Robot extends TimedRobot {
 		// a lil fun
 		totalDistance += Math.abs( (RobotMap.m_encoderLeft.getDistance() + RobotMap.m_encoderRight.getDistance()) / 2);
 		SmartDashboard.putNumber("Total Distance: ", totalDistance);
+		
+		SmartDashboard.putNumber("Compressor Current: ", RobotMap.m_compressor.getCompressorCurrent());
 	}
 	
 	@Override
