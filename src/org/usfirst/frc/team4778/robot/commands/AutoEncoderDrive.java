@@ -20,7 +20,8 @@ public class AutoEncoderDrive extends Command {
 	private double time;
 	private double endTime;
 	
-	private PIDController pid;
+	private PIDController masterPID;
+	private PIDController slavePID;
 	
 	private boolean isFinished;
 	
@@ -38,16 +39,22 @@ public class AutoEncoderDrive extends Command {
     		isFinished = false;
     		
     		//5.9375
-    		pid = new PIDController(0.25, 0, 0, distance-7);
-    		pid.setTolerence(3);
-    		pid.setOutputLimits(-speed, speed);
+    		masterPID = new PIDController(0.25, 0, 0, distance-7);
+    		masterPID.setTolerence(3);
+    		masterPID.setOutputLimits(-speed, speed);
+    		
+    		slavePID = new PIDController(0.25, 0, 0, RobotMap.m_encoderLeft.getDistance());
+    		slavePID.setTolerence(3);
+    		slavePID.setOutputLimits(-speed, speed);
     		
     		endTime = Timer.getFPGATimestamp() + time;
     }
         
     protected void execute() {
-    	double leftPID = pid.computePID(RobotMap.m_encoderLeft.getDistance());
-	    double rightPID = pid.computePID(RobotMap.m_encoderRight.getDistance());
+    	slavePID.setSetpoint(RobotMap.m_encoderLeft.getDistance());
+    	
+    	double leftPID = masterPID.computePID(RobotMap.m_encoderLeft.getDistance());
+	    double rightPID = slavePID.computePID(RobotMap.m_encoderRight.getDistance());
 	    
 	    SmartDashboard.putNumber("Left PID", leftPID);
 	    SmartDashboard.putNumber("Right PID", rightPID);
