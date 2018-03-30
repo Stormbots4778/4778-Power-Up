@@ -38,7 +38,7 @@ public class AutoEncoderDrive extends Command {
     		isFinished = false;
     		
     		//5.9375
-    		pid = new PIDController(0.5, 0, 0, distance-7);
+    		pid = new PIDController(0.25, 0, 0, distance-7);
     		pid.setTolerence(3);
     		pid.setOutputLimits(-speed, speed);
     		
