@@ -11,6 +11,6 @@ public class AutoCrossLine extends CommandGroup {
     public AutoCrossLine() {
 			addSequential(new Lift(true));
     		addSequential(new FoldGrabber(true));
-    		addSequential(new AutoTimerDrive(0.75, 1.25));
+			addSequential(new AutoEncoderDrive(0.7, 152, 3)); // Drive forward 152 inches (12' 8")
     }
 }
