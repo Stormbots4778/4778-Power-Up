@@ -36,7 +36,7 @@ public class OI {
 	
 	public static Button foldGrabbers = new JoystickButton(joystickLeft, 6);
 	public static Button unfoldGrabbers = new JoystickButton(joystickLeft, 7);
-		
+
 	public OI() {
 		shootSwitch.toggleWhenPressed(new Shoot(0.45));
 		shootScale.toggleWhenPressed(new Shoot(0.8));

@@ -90,6 +90,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("Left Encoder", RobotMap.m_encoderLeft.getDistance());
+		SmartDashboard.putNumber("Right Encoder", RobotMap.m_encoderRight.getDistance());
 	}
 
 	@Override
@@ -109,8 +111,6 @@ public class Robot extends TimedRobot {
 		// Push status of grabber motors and intake motors to the smart dashboard
 		//SmartDashboard.putNumber("Grabber Motors: ", RobotMap.m_grabMotors.get());
 		SmartDashboard.putNumber("Intake Motors: ", RobotMap.m_cubeMotors.get());
-		SmartDashboard.putNumber("Left Encoder", RobotMap.m_encoderLeft.getDistance());
-		SmartDashboard.putNumber("Right Encoder", RobotMap.m_encoderRight.getDistance());
 		
 		// a lil fun
 		totalDistance += Math.abs( (RobotMap.m_encoderLeft.getDistance() + RobotMap.m_encoderRight.getDistance()) / 2);

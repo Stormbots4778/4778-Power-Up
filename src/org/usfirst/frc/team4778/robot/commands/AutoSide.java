@@ -45,10 +45,10 @@ public class AutoSide extends CommandGroup {
     private void switchAuto(char side) {
 			addSequential(new AutoEncoderDrive(0.7, 160, 3)); // Drive forward 152 inches (12' 8")
 			
-			if(side == 'L') addSequential(new AutoEncoderTurn(0.7, Math.PI/2, 2.5)); // 90 degrees cw for left
-			else if(side == 'R') addSequential(new AutoEncoderTurn(0.7, -Math.PI/2, 2.5)); // or 90 degrees ccw for right
+			if(side == 'L') addSequential(new AutoEncoderTurn(0.7, Math.PI/2, 2)); // 90 degrees cw for left
+			else if(side == 'R') addSequential(new AutoEncoderTurn(0.7, -Math.PI/2, 2)); // or 90 degrees ccw for right
 			
-			addSequential(new AutoEncoderDrive(0.7, 40, 3)); //Drive forward against the switch (40 inches)
+			addSequential(new AutoEncoderDrive(0.7, 52, 2)); //Drive forward against the switch (52 inches)
 			
     		// Shoot
     		addParallel(new Shoot(0.35), 2); // 35% power
