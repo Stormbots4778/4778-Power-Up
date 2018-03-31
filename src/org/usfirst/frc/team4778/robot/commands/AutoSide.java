@@ -15,10 +15,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class AutoSide extends CommandGroup {
 
 	private int priority;
+	private char side;
 	
     public AutoSide(char side, int priority, boolean shouldWait) {
     		
     		this.priority = priority;
+    		this.side = side;
+    		
     		// Init
     		if(shouldWait) addSequential(new AutoTimer(3));
     		addSequential(new Lift(true));
@@ -85,5 +88,9 @@ public class AutoSide extends CommandGroup {
     
     public int getPriority() {
     	return priority;
+    }
+    
+    public char getSide() {
+    	return side;
     }
 }
