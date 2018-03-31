@@ -55,11 +55,8 @@ public class AutoEncoderTurn extends Command {
     }
     
     protected void execute() {
-	    	double leftTurnPID = pidLeft.computePID(RobotMap.m_encoderLeft.getDistance());
-	    	double rightTurnPID = pidRight.computePID(RobotMap.m_encoderRight.getDistance());
-	    
-	    	SmartDashboard.putNumber("Left Turn PID", leftTurnPID);
-	    	SmartDashboard.putNumber("Right Turn PID", rightTurnPID);
+	    double leftTurnPID = pidLeft.computePID(RobotMap.m_encoderLeft.getDistance());
+	    double rightTurnPID = pidRight.computePID(RobotMap.m_encoderRight.getDistance());
 	    	
 		Robot.m_drive.tankDrive(leftTurnPID, rightTurnPID);
 		
