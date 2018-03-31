@@ -14,8 +14,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class AutoSide extends CommandGroup {
 
+	private int priority;
+	
     public AutoSide(char side, int priority, boolean shouldWait) {
     		
+    		this.priority = priority;
     		// Init
     		if(shouldWait) addSequential(new AutoTimer(3));
     		addSequential(new Lift(true));
@@ -78,5 +81,9 @@ public class AutoSide extends CommandGroup {
 		else if(side == 'R') addSequential(new AutoEncoderTurn(0.7, -Math.PI/2, 2.5)); // or 90 degrees ccw for right
 		
 		addSequential(new AutoEncoderDrive(0.7, 144, 4)); // Drive forward 144 inches (12')
+    }
+    
+    public int getPriority() {
+    	return priority;
     }
 }
