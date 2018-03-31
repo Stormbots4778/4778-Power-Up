@@ -79,12 +79,14 @@ public class Robot extends TimedRobot {
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		SmartDashboard.putString("Game Data: ", gameData);
 						
+		m_autonomousCommand = m_chooser.getSelected();
+		
 		if(m_autonomousCommand instanceof AutoSide) {
 			m_autonomousCommand = new AutoSide(((AutoSide)m_autonomousCommand).getSide(), ((AutoSide)m_autonomousCommand).getPriority(), false);
 		} else if(m_autonomousCommand instanceof AutoCenter) {
 			m_autonomousCommand = new AutoCenter(false);
 		}
-		
+				
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.start();
 		}
