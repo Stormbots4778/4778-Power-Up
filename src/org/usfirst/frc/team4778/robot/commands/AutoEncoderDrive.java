@@ -55,9 +55,6 @@ public class AutoEncoderDrive extends Command {
     	
     	double leftPID = masterPID.computePID(RobotMap.m_encoderLeft.getDistance());
 	    double rightPID = slavePID.computePID(RobotMap.m_encoderRight.getDistance());
-	    
-	    SmartDashboard.putNumber("Left PID", leftPID);
-	    SmartDashboard.putNumber("Right PID", rightPID);
 
 		Robot.m_drive.tankDrive(leftPID, rightPID);
 		
