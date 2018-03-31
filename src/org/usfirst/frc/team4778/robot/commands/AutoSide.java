@@ -24,25 +24,19 @@ public class AutoSide extends CommandGroup {
     		// Logic Stuff
     		if(priority == 0) {
     				if(Robot.gameData.charAt(0) == side) {
-    						SmartDashboard.putString("Status: ", "Going to the switch m8");
     						switchAuto(side);
     				} else if(Robot.gameData.charAt(1) == side) {
-							SmartDashboard.putString("Status: ", "Going to the scale boi");
     						scaleAuto(side);
     				} else {
-							SmartDashboard.putString("Status: ", "Neither colors are ours my dude");
     						crossLineAuto(side);
     				}
     		
     		} else if(priority == 1) {
     				if(Robot.gameData.charAt(1) == side) {
-							SmartDashboard.putString("Status: ", "Going to the switch m8");
     						scaleAuto(side);
     				} else if(Robot.gameData.charAt(0) == side) {
-							SmartDashboard.putString("Status: ", "Going to the scale boi");
     						switchAuto(side);
     				} else {
-							SmartDashboard.putString("Status: ", "Neither colors are ours my dude");
     						crossLineAuto(side);
     				}
     		
