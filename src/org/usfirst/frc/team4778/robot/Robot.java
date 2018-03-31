@@ -39,23 +39,23 @@ public class Robot extends TimedRobot {
 
 	private static double totalDistance = 0;
 	
+	String m_autoString;
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 	
-	public static String gameData = "RRR";
-	//public static String gameData;
+	public static String gameData = "";
 	
 	@Override
 	public void robotInit() {
 		
 		// Auto Chooser
 		m_chooser.addDefault("No Auto (lame)", new AutoTimerDrive(0, 0));
-		m_chooser.addObject("Cross Line", new AutoCrossLine());
-		m_chooser.addObject("Auto Left (switch priority)", new AutoSide('L', 0, false));
-		m_chooser.addObject("Auto Left (scale priority)", new AutoSide('L', 1, false));
-		m_chooser.addObject("Auto Right (switch priority)", new AutoSide('R', 0, false));
-		m_chooser.addObject("Auto Right (scale priority)", new AutoSide('R', 1, false));
-		m_chooser.addObject("Auto Center", new AutoCenter(false));
+		m_chooser.addObject("Cross Line", new AutoTimerDrive(0, 0));
+		m_chooser.addObject("Auto Left (switch priority)", new AutoTimerDrive(0, 0));
+		m_chooser.addObject("Auto Left (scale priority)", new AutoTimerDrive(0, 0));
+		m_chooser.addObject("Auto Right (switch priority)", new AutoTimerDrive(0, 0));
+		m_chooser.addObject("Auto Right (scale priority)", new AutoTimerDrive(0, 0));
+		m_chooser.addObject("Auto Center", new AutoTimerDrive(0, 0));
 		m_chooser.addObject("Auto Test", new AutoTest());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		
@@ -81,8 +81,23 @@ public class Robot extends TimedRobot {
 		// Get game data from FMS
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		SmartDashboard.putString("Game Data: ", gameData);
+				
+		m_autoString = m_chooser.getName();
 		
-		m_autonomousCommand = m_chooser.getSelected();
+		if(m_autoString.equals("Auto Left (switch priority)")) {
+			m_autonomousCommand = new AutoSide('L', 0, false);
+		} else if(m_autoString.equals("Auto Left (scale priority)")) {
+			m_autonomousCommand = new AutoSide('L', 1, false);
+		} else if(m_autoString.equals("Auto Right (switch priority)")) {
+			m_autonomousCommand = new AutoSide('R', 0, false);
+		} else if(m_autoString.equals("Auto Right (scale priority)")) {
+			m_autonomousCommand = new AutoSide('R', 1, false);
+		} else if(m_autoString.equals("Cross Line")) {
+			m_autonomousCommand = new AutoCrossLine();
+		} else if(m_autoString.equals("Auto Center")) {
+			m_autonomousCommand = new AutoCenter(false);
+		}
+		
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.start();
 		}
