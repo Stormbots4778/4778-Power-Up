@@ -45,7 +45,7 @@ public class AutoEncoderDrive extends Command {
     		
     		slavePID = new PIDController(0.75, 0, 0, 0);
     		slavePID.setTolerence(1);
-    		slavePID.setOutputLimits(-speed, speed);
+    		slavePID.setOutputLimits(-0.8, 0.8);
     		
     		endTime = Timer.getFPGATimestamp() + time;
     }
