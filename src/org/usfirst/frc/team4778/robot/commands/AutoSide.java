@@ -27,17 +27,23 @@ public class AutoSide extends CommandGroup {
     		addSequential(new Lift(true));
     		addSequential(new FoldGrabber(true));
 		
-    		// Logic Stuff
-    		if(priority == 0) {
-    				if(Robot.gameData.charAt(0) == side) {
-    						switchAuto(side);
-    				} else if(Robot.gameData.charAt(1) == side) {
-    						scaleAuto(side);
-    				} else {
-    						crossLineAuto(side);
-    				}
+    		if(Robot.gameData.charAt(1) == side) {
+				scaleAuto(side);
+    		} else {
+				crossLineAuto(side);
+    		}
     		
-    		} else if(priority == 1) {
+    		// Logic Stuff
+    		//if(priority == 0) {
+//    				if(Robot.gameData.charAt(0) == side) {
+//    						switchAuto(side);
+//    				/*} else */if(Robot.gameData.charAt(1) == side) {
+//    						scaleAuto(side);
+//    				} else {
+//    						crossLineAuto(side);
+//    				}
+    		
+    	/*} else if(priority == 1) {
     				if(Robot.gameData.charAt(1) == side) {
     						scaleAuto(side);
     				} else if(Robot.gameData.charAt(0) == side) {
@@ -46,7 +52,7 @@ public class AutoSide extends CommandGroup {
     						crossLineAuto(side);
     				}
     		
-    		}
+    		}*/
     }
     
     private void switchAuto(char side) {
